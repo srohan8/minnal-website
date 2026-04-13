@@ -16,14 +16,70 @@ body { font-family: 'Inter', sans-serif; color: var(--gray-800); background: #ff
 .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
 
 /* Nav */
-.nav { border-bottom: 1px solid var(--gray-100); padding: 16px 0; position: sticky; top: 0; background: #fff; z-index: 10; }
+.nav { border-bottom: 1px solid var(--gray-100); padding: 16px 0; position: sticky; top: 0; background: #fff; z-index: 100; }
 .nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; }
-.nav-logo { font-weight: 700; font-size: 18px; text-decoration: none; color: var(--gray-900); }
+.nav-logo { font-weight: 700; font-size: 18px; text-decoration: none; color: var(--gray-900); display: flex; align-items: center; }
 .nav-links { display: flex; align-items: center; gap: 24px; }
 .nav-links a { text-decoration: none; color: var(--gray-600); font-size: 14px; font-weight: 500; }
 .nav-links a:hover { color: var(--gray-900); }
-.btn-nav { background: var(--brand); color: #fff !important; padding: 8px 18px; border-radius: 8px; font-weight: 600 !important; }
+.btn-nav { background: var(--brand); color: #fff !important; padding: 8px 18px; border-radius: 8px; font-weight: 600 !important; white-space: nowrap; }
 .btn-nav:hover { background: var(--brand-dark); }
+
+/* Hamburger */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  z-index: 101;
+}
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--gray-800);
+  border-radius: 2px;
+  transition: all .25s ease;
+}
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile nav dropdown */
+.nav-mobile {
+  display: none;
+  flex-direction: column;
+  background: #fff;
+  border-top: 1px solid var(--gray-100);
+  padding: 12px 0 16px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  box-shadow: 0 8px 24px rgba(0,0,0,.08);
+  z-index: 99;
+}
+.nav-mobile.open { display: flex; }
+.nav-mobile a {
+  text-decoration: none;
+  color: var(--gray-600);
+  font-size: 15px;
+  font-weight: 500;
+  padding: 11px 24px;
+  transition: background .15s;
+}
+.nav-mobile a:hover { background: var(--gray-50); color: var(--gray-900); }
+.nav-mobile .btn-nav {
+  margin: 8px 24px 0;
+  text-align: center;
+  border-radius: 8px;
+  padding: 11px 18px;
+}
 
 /* Hero */
 .hero { padding: 96px 0 80px; text-align: center; }
@@ -52,7 +108,36 @@ body { font-family: 'Inter', sans-serif; color: var(--gray-800); background: #ff
 
 /* Footer */
 .footer { border-top: 1px solid var(--gray-100); padding: 24px 0; }
-.footer-inner { display: flex; align-items: center; justify-content: space-between; font-size: 13px; color: var(--gray-400); }
-.footer-links { display: flex; gap: 20px; }
+.footer-inner { display: flex; align-items: center; justify-content: space-between; font-size: 13px; color: var(--gray-400); flex-wrap: wrap; gap: 10px; }
+.footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
 .footer-links a { color: var(--gray-400); text-decoration: none; }
 .footer-links a:hover { color: var(--gray-600); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+  .nav { position: sticky; }
+
+  .hero { padding: 60px 0 48px; }
+  .hero h1 { font-size: clamp(28px, 8vw, 48px); }
+  .hero-sub { font-size: 16px; }
+
+  .features { padding: 56px 0; }
+  .features h2 { font-size: 24px; margin-bottom: 32px; }
+  .feature-grid { grid-template-columns: 1fr; }
+
+  .cta-section { padding: 56px 0; }
+  .cta-section h2 { font-size: 24px; }
+
+  .footer-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
+}
+
+@media (max-width: 480px) {
+  .container { padding: 0 16px; }
+  .nav-inner { padding: 0 16px; }
+  .nav-mobile a { padding: 11px 16px; }
+  .nav-mobile .btn-nav { margin: 8px 16px 0; }
+  .hero-cta { flex-direction: column; align-items: center; }
+  .btn-primary, .btn-secondary { width: 100%; text-align: center; }
+}

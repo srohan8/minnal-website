@@ -25,7 +25,7 @@
   <nav class="nav">
     <div class="nav-inner">
       <a href="/" class="nav-logo">
-        <img src="minnal_logo.svg" alt="Minnal" height="50">
+        <img src="minnal_logo.svg" alt="Minnal" height="40">
       </a>
       <div class="nav-links">
         <a href="https://blog.minnal.io">Blog</a>
@@ -34,8 +34,24 @@
         <a href="/pricing">Pricing</a>
         <a href="https://app.minnal.io" class="btn-nav">Get started</a>
       </div>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu" onclick="toggleMobileNav()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="navMobile">
+      <a href="https://blog.minnal.io">Blog</a>
+      <a href="https://docs.minnal.io">Docs</a>
+      <a href="/faq">FAQ</a>
+      <a href="/pricing">Pricing</a>
+      <a href="https://app.minnal.io" class="btn-nav">Get started</a>
     </div>
   </nav>
+  <script>
+    function toggleMobileNav() {
+      document.getElementById('navHamburger').classList.toggle('open');
+      document.getElementById('navMobile').classList.toggle('open');
+    }
+  </script>
 
   <!-- Hero -->
   <section class="hero">
