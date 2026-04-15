@@ -143,7 +143,7 @@
         <!-- Starter -->
         <div class="pricing-card">
           <div class="pc-name">Starter</div>
-          <div class="pc-tagline">Perfect for one brand. Everything you need to build a presence and get found by AI.</div>
+          <div class="pc-tagline">Execution for solo operators. Scheduling, publishing, analytics, and Claude MCP for a lean workflow.</div>
           <div class="pc-price" id="starterPrice">$9<span>/ month</span></div>
           <div class="pc-yearly-note" id="starterNote">&nbsp;</div>
           <a href="#" class="pc-cta pc-cta-secondary" id="starterCta">Get Starter</a>
@@ -154,8 +154,10 @@
             <li><i class="ph ph-check icon-yes"></i> 3 platforms</li>
             <li><i class="ph ph-check icon-yes"></i> Analytics</li>
             <li><i class="ph ph-check icon-yes"></i> AI content generation</li>
-            <li><i class="ph ph-x icon-no"></i> LLM visibility tracking</li>
-            <li><i class="ph ph-x icon-no"></i> SEO / GEO reports</li>
+            <li><i class="ph ph-check icon-yes"></i> Claude MCP access</li>
+            <li><i class="ph ph-x icon-no"></i> AI visibility tracking (8 models)</li>
+            <li><i class="ph ph-x icon-no"></i> GEO reports + content gaps</li>
+            <li><i class="ph ph-x icon-no"></i> Prompt research + source discovery</li>
           </ul>
         </div>
 
@@ -163,7 +165,7 @@
         <div class="pricing-card popular">
           <div class="popular-badge">Most popular</div>
           <div class="pc-name">Pro</div>
-          <div class="pc-tagline">Unlimited everything. For serious indie hackers scaling multiple brands.</div>
+          <div class="pc-tagline">Decision engine + execution. Everything in Starter plus full GEO visibility, content gaps, prompt research, and source discovery.</div>
           <div class="pc-price" id="proPrice">$19<span>/ month</span></div>
           <div class="pc-yearly-note" id="proNote">&nbsp;</div>
           <a href="#" class="pc-cta pc-cta-primary" id="proCta">Get Pro</a>
@@ -172,10 +174,11 @@
             <li><i class="ph ph-check icon-yes"></i> Unlimited projects</li>
             <li><i class="ph ph-check icon-yes"></i> Unlimited posts</li>
             <li><i class="ph ph-check icon-yes"></i> All platforms</li>
-            <li><i class="ph ph-check icon-yes"></i> LLM visibility tracking</li>
-            <li><i class="ph ph-check icon-yes"></i> SEO / GEO reports</li>
-            <li><i class="ph ph-check icon-yes"></i> Content insights</li>
             <li><i class="ph ph-check icon-yes"></i> Claude MCP access</li>
+            <li><i class="ph ph-check icon-yes"></i> AI visibility tracking — 8 models</li>
+            <li><i class="ph ph-check icon-yes"></i> GEO reports + content gap analysis</li>
+            <li><i class="ph ph-check icon-yes"></i> Prompt research + source discovery</li>
+            <li><i class="ph ph-check icon-yes"></i> Crawler monitoring</li>
             <li><i class="ph ph-check icon-yes"></i> Data export &amp; webhooks</li>
           </ul>
         </div>
@@ -256,37 +259,43 @@
             <td class="col-pro"><i class="ph ph-check ct-check"></i></td>
           </tr>
           <tr>
-            <td>LLM visibility tracking</td>
+            <td>Claude MCP access</td>
             <td><i class="ph ph-check ct-check"></i></td>
-            <td><span class="ct-dash">—</span></td>
-            <td class="col-pro"><i class="ph ph-check ct-check"></i></td>
-          </tr>
-          <tr>
-            <td>SEO / GEO reports</td>
             <td><i class="ph ph-check ct-check"></i></td>
-            <td><span class="ct-dash">—</span></td>
-            <td class="col-pro"><i class="ph ph-check ct-check"></i></td>
-          </tr>
-          <tr>
-            <td>Content insights</td>
-            <td><i class="ph ph-check ct-check"></i></td>
-            <td><span class="ct-dash">—</span></td>
             <td class="col-pro"><i class="ph ph-check ct-check"></i></td>
           </tr>
           <tr>
             <td>GitHub Pages publish</td>
+            <td><i class="ph ph-check ct-check"></i></td>
+            <td><i class="ph ph-check ct-check"></i></td>
+            <td class="col-pro"><i class="ph ph-check ct-check"></i></td>
+          </tr>
+          <tr>
+            <td>AI visibility tracking (8 models)</td>
+            <td><i class="ph ph-check ct-check"></i></td>
+            <td><span class="ct-dash">—</span></td>
+            <td class="col-pro"><i class="ph ph-check ct-check"></i></td>
+          </tr>
+          <tr>
+            <td>GEO reports + content gap analysis</td>
+            <td><i class="ph ph-check ct-check"></i></td>
+            <td><span class="ct-dash">—</span></td>
+            <td class="col-pro"><i class="ph ph-check ct-check"></i></td>
+          </tr>
+          <tr>
+            <td>Prompt research + source discovery</td>
+            <td><i class="ph ph-check ct-check"></i></td>
+            <td><span class="ct-dash">—</span></td>
+            <td class="col-pro"><i class="ph ph-check ct-check"></i></td>
+          </tr>
+          <tr>
+            <td>Crawler monitoring</td>
             <td><i class="ph ph-check ct-check"></i></td>
             <td><span class="ct-dash">—</span></td>
             <td class="col-pro"><i class="ph ph-check ct-check"></i></td>
           </tr>
           <tr>
             <td>Webhooks</td>
-            <td><i class="ph ph-check ct-check"></i></td>
-            <td><span class="ct-dash">—</span></td>
-            <td class="col-pro"><i class="ph ph-check ct-check"></i></td>
-          </tr>
-          <tr>
-            <td>Claude MCP access</td>
             <td><i class="ph ph-check ct-check"></i></td>
             <td><span class="ct-dash">—</span></td>
             <td class="col-pro"><i class="ph ph-check ct-check"></i></td>
@@ -346,7 +355,7 @@
       <div class="footer-inner">
         <span class="footer-tagline">
           <img src="minnal_logo.svg" alt="Minnal" height="20" style="vertical-align:middle;margin-right:6px">
-          MarketingHub — Built for the Future of Search
+          Minnal — Your AI marketing co-pilot
         </span>
         <div class="footer-links">
           <a href="https://blog.minnal.io">Blog</a>

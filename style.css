@@ -87,6 +87,10 @@ body { font-family: 'Inter', sans-serif; color: var(--gray-800); background: #ff
 .hero h1 { font-size: clamp(36px, 5vw, 64px); font-weight: 700; line-height: 1.1; color: var(--gray-900); margin-bottom: 20px; }
 .hero-sub { font-size: 18px; color: var(--gray-600); max-width: 600px; margin: 0 auto 36px; }
 .hero-cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.hero-bullets { list-style: none; display: inline-flex; flex-direction: column; gap: 10px; margin: 28px auto 0; text-align: left; padding: 0; }
+.hero-bullets li { font-size: 15px; color: var(--gray-600); display: flex; align-items: center; gap: 9px; }
+.hero-bullets li i { color: var(--brand); font-size: 18px; flex-shrink: 0; }
+.hero-bullets li code { font-family: monospace; font-size: 13px; background: var(--gray-100); padding: 1px 6px; border-radius: 4px; color: var(--gray-700); }
 .btn-primary { background: var(--brand); color: #fff; padding: 14px 28px; border-radius: 10px; font-weight: 600; font-size: 15px; text-decoration: none; display: inline-block; }
 .btn-primary:hover { background: var(--brand-dark); }
 .btn-secondary { color: var(--gray-600); padding: 14px 20px; font-weight: 500; font-size: 15px; text-decoration: none; display: inline-block; }
