@@ -373,35 +373,53 @@
   </footer>
 
   <script>
-    const LS_BASE = 'https://minnal.lemonsqueezy.com/checkout/buy/';
-    // These will be populated once LS variant IDs are configured
-    const VARIANTS = { starter_monthly: '', starter_yearly: '', pro_monthly: '', pro_yearly: '' };
-
     let billing = 'monthly';
+    let plans = []; // populated from API
+
+    // Fetch live prices + checkout URLs from the app API
+    async function loadPlans() {
+      try {
+        const res = await fetch('https://app.minnal.io/plans');
+        plans = await res.json();
+        applyPrices();
+      } catch(e) {
+        // API unavailable — leave placeholder prices as-is
+      }
+    }
+
+    function applyPrices() {
+      const starter = plans.find(p => p.slug === 'starter');
+      const pro     = plans.find(p => p.slug === 'pro');
+
+      if (starter) {
+        const sp = billing === 'yearly' ? starter.price_yearly : starter.price_monthly;
+        const sn = billing === 'yearly' && starter.price_monthly
+          ? `${starter.price_monthly.price_formatted}/mo · 2 months free` : '';
+        if (sp) document.getElementById('starterPrice').innerHTML = `${sp.price_formatted}<span>/ ${billing === 'yearly' ? 'year' : 'month'}</span>`;
+        document.getElementById('starterNote').textContent = sn || '\u00a0';
+        const sUrl = billing === 'yearly' ? starter.checkout_yearly_url : starter.checkout_monthly_url;
+        if (sUrl) { document.getElementById('starterCta').href = sUrl; document.getElementById('starterCta').target = '_blank'; }
+      }
+
+      if (pro) {
+        const pp = billing === 'yearly' ? pro.price_yearly : pro.price_monthly;
+        const pn = billing === 'yearly' && pro.price_monthly
+          ? `${pro.price_monthly.price_formatted}/mo · 2 months free` : '';
+        if (pp) document.getElementById('proPrice').innerHTML = `${pp.price_formatted}<span>/ ${billing === 'yearly' ? 'year' : 'month'}</span>`;
+        document.getElementById('proNote').textContent = pn || '\u00a0';
+        const pUrl = billing === 'yearly' ? pro.checkout_yearly_url : pro.checkout_monthly_url;
+        if (pUrl) { document.getElementById('proCta').href = pUrl; document.getElementById('proCta').target = '_blank'; }
+      }
+    }
 
     function setBilling(mode) {
       billing = mode;
       document.getElementById('billMonthly').classList.toggle('active', mode === 'monthly');
       document.getElementById('billYearly').classList.toggle('active', mode === 'yearly');
-
-      if (mode === 'monthly') {
-        document.getElementById('starterPrice').innerHTML = '$9<span>/ month</span>';
-        document.getElementById('starterNote').innerHTML = '&nbsp;';
-        document.getElementById('proPrice').innerHTML = '$19<span>/ month</span>';
-        document.getElementById('proNote').innerHTML = '&nbsp;';
-      } else {
-        document.getElementById('starterPrice').innerHTML = '$79<span>/ year</span>';
-        document.getElementById('starterNote').textContent = '~$6.60/mo · 2 months free';
-        document.getElementById('proPrice').innerHTML = '$159<span>/ year</span>';
-        document.getElementById('proNote').textContent = '~$13.25/mo · 2 months free';
-      }
-
-      // Update CTA hrefs
-      const sk = billing === 'yearly' ? 'starter_yearly' : 'starter_monthly';
-      const pk = billing === 'yearly' ? 'pro_yearly'    : 'pro_monthly';
-      document.getElementById('starterCta').href = VARIANTS[sk] ? LS_BASE + VARIANTS[sk] : '#';
-      document.getElementById('proCta').href     = VARIANTS[pk] ? LS_BASE + VARIANTS[pk] : '#';
+      applyPrices();
     }
+
+    loadPlans();
   </script>
 </body>
 </html>
