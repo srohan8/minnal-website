@@ -1,92 +1,479 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pricing — Minnal</title>
-  <meta name="description" content="Free forever for solo founders. Upgrade when you grow. No credit card needed to start.">
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
-  <style>
-    .pricing-hero { padding: 72px 0 48px; text-align: center; }
-    .pricing-hero h1 { font-size: clamp(28px, 4vw, 48px); font-weight: 700; color: var(--gray-900); margin-bottom: 14px; }
-    .pricing-hero p { font-size: 17px; color: var(--gray-600); max-width: 540px; margin: 0 auto 32px; }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pricing — Minnal</title>
+<meta name="description" content="Free forever for solo founders. Pro from $12/mo. 30-day full trial included, no card needed." />
+<link rel="icon" type="image/png" href="favicon.png" />
 
-    .billing-toggle { display: flex; gap: 4px; margin: 0 auto 48px; background: var(--gray-100); border-radius: 8px; padding: 3px; width: fit-content; }
-    .billing-toggle button { padding: 7px 20px; border-radius: 6px; border: none; background: transparent; cursor: pointer; font-size: 13px; font-weight: 500; color: var(--gray-600); }
-    .billing-toggle button.active { background: #fff; box-shadow: 0 1px 4px rgba(0,0,0,.1); color: var(--gray-900); }
-    .save-badge { background: #dcfce7; color: #166534; font-size: 10px; padding: 1px 5px; border-radius: 9px; margin-left: 4px; }
+<script>
+  !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="Ii init Di qi Sr Bi Zi Pi capture calculateEventProperties Yi register register_once register_for_session unregister unregister_for_session Xi getFeatureFlag getFeatureFlagPayload getFeatureFlagResult isFeatureEnabled reloadFeatureFlags updateFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey cancelPendingSurvey canRenderSurvey canRenderSurveyAsync Ji identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset setIdentity clearIdentity get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException startExceptionAutocapture stopExceptionAutocapture loadToolbar get_property getSessionProperty Wi Vi createPersonProfile setInternalOrTestUser Gi Fi tn opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing $i debug Tr Ui getPageViewId captureTraceFeedback captureTraceMetric Ri".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+  posthog.init('phc_uSVCBt5kqmUKwHrnRDDG5LUQLveU4YJEWekW57L8Ah7j', {
+      api_host: 'https://eu.i.posthog.com',
+      defaults: '2026-01-30',
+      person_profiles: 'identified_only',
+  })
+</script>
+<script src="https://app.minnal.io/track/2c11643c-ee71-4845-a33a-d8345d26195b.js"></script>
 
-    .pricing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 64px; align-items: start; }
-    @media (max-width: 900px) { .pricing-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 540px) { .pricing-grid { grid-template-columns: 1fr; } }
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet" />
+<script src="https://unpkg.com/@phosphor-icons/web" defer></script>
 
-    .pricing-card { border: 1.5px solid var(--gray-100); border-radius: 14px; padding: 26px; position: relative; background: #fff; }
-    .pricing-card.popular { border-color: var(--brand); box-shadow: 0 6px 30px rgba(249,115,22,.13); transform: scale(1.02); }
-    .popular-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--brand); color: #fff; font-size: 11px; font-weight: 700; padding: 3px 14px; border-radius: 99px; white-space: nowrap; }
+<style>
+  /* ---------- Tokens ---------- */
+  :root {
+    --orange:        #FF6B35;
+    --orange-hover:  #E65A2B;
+    --orange-soft:   #FFF1EA;
+    --charcoal:      #1F2524;
+    --ink:           #2B2F2E;
+    --mute:          #6C6F6C;
+    --faint:         #9A9A93;
+    --bg:            #F4F6F8;
+    --card:          #FFFFFF;
+    --subtle:        #F8FAFB;
+    --warm-tint:     #FFF8F2;
+    --green-tint:    #F4F9F6;
+    --border:        #E5E7EB;
+    --border-strong: #D1D5DB;
+    --green:         #1F8A5B;
+    --max:           1100px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    color: var(--ink);
+    background: var(--card);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  a { color: inherit; text-decoration: none; }
+  .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+  .tnum { font-variant-numeric: tabular-nums; }
+  .container { max-width: var(--max); margin: 0 auto; padding: 0 28px; }
 
-    .pc-name { font-size: 17px; font-weight: 700; color: var(--gray-900); margin-bottom: 6px; }
-    .pc-tagline { font-size: 12px; color: var(--gray-500); margin-bottom: 18px; line-height: 1.5; min-height: 48px; }
-    .pc-price { font-size: 34px; font-weight: 700; color: var(--gray-900); line-height: 1; margin-bottom: 4px; }
-    .pc-price span { font-size: 13px; font-weight: 400; color: var(--gray-500); }
-    .pc-yearly-note { font-size: 11px; color: var(--gray-400); margin-bottom: 18px; min-height: 16px; }
-    .pc-cta { display: block; text-align: center; padding: 10px 18px; border-radius: 8px; font-size: 13px; font-weight: 600; text-decoration: none; margin: 16px 0; }
-    .pc-cta-primary { background: var(--brand); color: #fff; }
-    .pc-cta-primary:hover { background: var(--brand-dark); }
-    .pc-cta-secondary { border: 1.5px solid var(--gray-200); color: var(--gray-700); }
-    .pc-cta-secondary:hover { border-color: var(--gray-400); color: var(--gray-900); }
-    .pc-cta-ghost { border: 1.5px solid var(--gray-200); color: var(--gray-500); }
-    .pc-cta-ghost:hover { border-color: var(--gray-300); color: var(--gray-700); }
-    .pc-divider { border: none; border-top: 1px solid var(--gray-100); margin: 14px 0; }
-    .pc-features { list-style: none; display: flex; flex-direction: column; gap: 7px; }
-    .pc-features li { font-size: 12px; color: var(--gray-600); display: flex; gap: 7px; align-items: flex-start; }
-    .pc-features li .icon-yes { color: #16a34a; flex-shrink: 0; margin-top: 1px; }
-    .pc-features li .icon-no  { color: var(--gray-300); flex-shrink: 0; margin-top: 1px; }
-    .pc-limit { font-size: 11px; color: var(--gray-400); margin-bottom: 12px; }
+  /* ---------- Nav (matches Landing.html) ---------- */
+  .nav {
+    border-bottom: 1px solid var(--border);
+    background: rgba(255,255,255,.9);
+    backdrop-filter: saturate(140%) blur(10px);
+    position: sticky; top: 0; z-index: 50;
+  }
+  .nav-inner {
+    max-width: var(--max); margin: 0 auto; padding: 14px 28px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo img { height: 28px; display: block; }
+  .nav-links { display: flex; align-items: center; gap: 26px; }
+  .nav-links a {
+    font-size: 13.5px; font-weight: 500; color: var(--mute);
+    transition: color 120ms ease;
+  }
+  .nav-links a:hover { color: var(--charcoal); }
+  .nav-links a.current { color: var(--charcoal); font-weight: 600; }
+  .btn-nav {
+    background: var(--charcoal); color: #fff !important;
+    padding: 9px 16px; border-radius: 9px;
+    font-weight: 600; font-size: 13.5px;
+    display: inline-flex; align-items: center; gap: 6px;
+    transition: background 120ms ease;
+  }
+  .btn-nav:hover { background: #0F1413; }
+  .nav-hamburger {
+    display: none; flex-direction: column; gap: 4px;
+    background: none; border: none; cursor: pointer; padding: 6px;
+  }
+  .nav-hamburger span {
+    width: 20px; height: 2px; background: var(--charcoal); border-radius: 2px;
+    transition: all .25s ease;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+  .nav-mobile {
+    display: none; flex-direction: column; gap: 2px;
+    background: var(--card); border-top: 1px solid var(--border);
+    padding: 12px 0;
+  }
+  .nav-mobile.open { display: flex; }
+  .nav-mobile a {
+    padding: 11px 28px; font-size: 14.5px; color: var(--ink); font-weight: 500;
+  }
+  .nav-mobile .btn-nav { margin: 8px 28px 0; justify-content: center; }
 
-    /* Compare table */
-    .compare-section { padding: 0 0 64px; }
-    .compare-section h2 { font-size: 22px; font-weight: 700; margin-bottom: 20px; color: var(--gray-900); }
-    .compare-table { width: 100%; border-collapse: collapse; font-size: 12px; }
-    .compare-table th { padding: 12px 14px; font-weight: 600; text-align: center; background: var(--gray-50); border-bottom: 2px solid var(--gray-200); }
-    .compare-table th:first-child { text-align: left; }
-    .compare-table td { padding: 9px 14px; border-top: 1px solid var(--gray-100); }
-    .compare-table td:first-child { color: var(--gray-700); font-weight: 500; }
-    .compare-table td:not(:first-child) { text-align: center; }
-    .compare-table .col-pro { background: #fff7ed; }
-    .compare-table .col-pro-h { color: var(--brand); }
-    .ct-check { color: #16a34a; font-size: 15px; }
-    .ct-dash  { color: var(--gray-300); }
-    .ct-unlimited { color: #16a34a; font-weight: 600; font-size: 11px; }
-    .compare-table tr:hover td { background: var(--gray-50); }
-    .compare-table tr:hover td.col-pro { background: #fef3c7; }
-    .compare-table .group-label td { background: var(--gray-50); font-weight: 700; font-size: 10px; text-transform: uppercase; letter-spacing: .5px; color: var(--gray-500); padding: 7px 14px; }
+  /* ---------- Hero ---------- */
+  .hero { padding: 72px 0 40px; text-align: center; }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11.5px; font-weight: 700; letter-spacing: 0.14em;
+    color: var(--orange); text-transform: uppercase;
+    margin-bottom: 22px;
+  }
+  .eyebrow::before {
+    content: ""; width: 6px; height: 6px; border-radius: 999px;
+    background: var(--orange);
+  }
+  .hero h1 {
+    font-size: clamp(30px, 4vw, 48px);
+    font-weight: 800; line-height: 1.06;
+    letter-spacing: -0.025em; color: var(--charcoal);
+    text-wrap: balance; margin-bottom: 18px;
+    max-width: 880px; margin-left: auto; margin-right: auto;
+  }
+  .hero h1 .accent { color: var(--orange); }
+  .hero p.lede {
+    font-size: 16.5px; color: var(--mute);
+    max-width: 600px; margin: 0 auto 28px;
+    line-height: 1.55; text-wrap: pretty;
+  }
 
-    /* FAQ */
-    .pricing-faq { padding: 0 0 72px; }
-    .pricing-faq h2 { font-size: 22px; font-weight: 700; margin-bottom: 24px; color: var(--gray-900); }
-    .faq-list { display: flex; flex-direction: column; gap: 16px; max-width: 680px; }
-    .faq-item summary { font-size: 14px; font-weight: 600; cursor: pointer; color: var(--gray-800); padding: 4px 0; }
-    .faq-item p { font-size: 13px; color: var(--gray-600); margin-top: 8px; line-height: 1.6; }
-  </style>
-  <script src="https://app.minnal.io/track/2c11643c-ee71-4845-a33a-d8345d26195b.js"></script>
+  /* Billing toggle */
+  .billing-toggle {
+    display: inline-flex; gap: 2px; padding: 4px;
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: 12px;
+  }
+  .billing-toggle button {
+    background: transparent; border: none;
+    padding: 8px 18px; border-radius: 9px;
+    font-family: inherit; font-size: 13.5px; font-weight: 600;
+    color: var(--mute); cursor: pointer;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: all 120ms ease;
+  }
+  .billing-toggle button.active {
+    background: var(--card); color: var(--charcoal);
+    box-shadow: 0 1px 2px rgba(31,37,36,.06);
+  }
+  .save-badge {
+    background: #E6F2EC; color: var(--green);
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.04em;
+    padding: 2px 7px; border-radius: 999px;
+  }
+
+  /* ---------- Pricing grid ---------- */
+  .pricing-grid {
+    display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px; padding-top: 36px; align-items: stretch;
+  }
+  .plan-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 14px; padding: 24px;
+    display: flex; flex-direction: column; gap: 14px;
+    position: relative;
+    transition: border-color 120ms ease;
+  }
+  .plan-card:hover { border-color: var(--border-strong); }
+  .plan-card.popular {
+    border: 1.5px solid var(--orange);
+    box-shadow: 0 24px 48px -28px rgba(255,107,53,.28);
+  }
+  .plan-card.popular:hover { border-color: var(--orange); }
+  .popular-badge {
+    position: absolute; top: -11px; left: 50%; transform: translateX(-50%);
+    background: var(--orange); color: #fff;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.05em;
+    padding: 4px 12px; border-radius: 999px;
+    white-space: nowrap;
+  }
+  .pc-num {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.12em;
+    color: var(--orange); text-transform: uppercase;
+  }
+  .plan-card.normal .pc-num { color: var(--mute); }
+  .pc-name {
+    font-size: 19px; font-weight: 700; color: var(--charcoal);
+    letter-spacing: -0.015em;
+  }
+  .pc-tagline {
+    font-size: 13px; color: var(--mute); line-height: 1.55;
+    min-height: 56px;
+  }
+  .pc-price-row {
+    display: flex; align-items: baseline; gap: 6px;
+    margin-top: 4px;
+  }
+  .pc-price {
+    font-family: 'Inter', sans-serif;
+    font-size: 38px; font-weight: 800; color: var(--charcoal);
+    letter-spacing: -0.03em; line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+  .pc-price-unit {
+    font-size: 13px; font-weight: 500; color: var(--mute);
+  }
+  .pc-yearly-note {
+    font-size: 11.5px; color: var(--faint); min-height: 16px;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+  }
+  .pc-cta {
+    padding: 11px 16px; border-radius: 10px;
+    font-size: 13.5px; font-weight: 600; text-align: center;
+    transition: all 120ms ease;
+    display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  }
+  .pc-cta-primary { background: var(--orange); color: #fff; }
+  .pc-cta-primary:hover { background: var(--orange-hover); }
+  .pc-cta-dark { background: var(--charcoal); color: #fff; }
+  .pc-cta-dark:hover { background: #0F1413; }
+  .pc-cta-secondary {
+    background: var(--card); color: var(--charcoal);
+    border: 1px solid var(--border-strong);
+  }
+  .pc-cta-secondary:hover { background: var(--subtle); }
+  .pc-cta-ghost {
+    background: var(--card); color: var(--ink);
+    border: 1px solid var(--border);
+  }
+  .pc-cta-ghost:hover { background: var(--subtle); color: var(--charcoal); }
+
+  .pc-limits {
+    border-top: 1px solid var(--border);
+    padding-top: 14px; margin-top: 4px;
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  .pc-limit {
+    display: flex; flex-direction: column; gap: 1px;
+  }
+  .pc-limit-v {
+    font-size: 16px; font-weight: 700; color: var(--charcoal);
+    letter-spacing: -0.015em; line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+  .pc-limit-l {
+    font-size: 10.5px; color: var(--mute); letter-spacing: 0.02em;
+    text-transform: uppercase; font-weight: 600;
+  }
+  .pc-features {
+    list-style: none; display: flex; flex-direction: column; gap: 7px;
+  }
+  .pc-features li {
+    font-size: 12.5px; color: var(--ink); line-height: 1.5;
+    display: flex; gap: 8px; align-items: flex-start;
+  }
+  .pc-features li i {
+    color: var(--green); font-size: 14px; flex-shrink: 0; margin-top: 2px;
+  }
+  .pc-features li.off { color: var(--faint); }
+  .pc-features li.off i { color: var(--border-strong); }
+
+  .fine {
+    text-align: center; margin-top: 28px;
+    font-size: 12.5px; color: var(--faint);
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  /* ---------- Compare table ---------- */
+  .compare { padding: 80px 0 64px; }
+  .section-head {
+    display: flex; align-items: baseline; gap: 18px;
+    padding-bottom: 14px; margin-bottom: 28px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-head .num {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.12em; color: var(--orange);
+  }
+  .section-head h2 {
+    font-size: 22px; font-weight: 700;
+    letter-spacing: -0.015em; color: var(--charcoal);
+  }
+  .section-head .sub { flex: 1; font-size: 13px; color: var(--mute); }
+
+  .compare-table {
+    width: 100%; border-collapse: collapse; font-size: 13px;
+    background: var(--card);
+    border: 1px solid var(--border); border-radius: 14px; overflow: hidden;
+  }
+  .compare-table th, .compare-table td {
+    padding: 12px 16px; text-align: center;
+  }
+  .compare-table th:first-child, .compare-table td:first-child {
+    text-align: left;
+  }
+  .compare-table thead th {
+    background: var(--bg);
+    font-size: 12px; font-weight: 700; color: var(--charcoal);
+    text-transform: uppercase; letter-spacing: 0.06em;
+    border-bottom: 1px solid var(--border);
+  }
+  .compare-table thead th.col-pro {
+    color: var(--orange); background: var(--orange-soft);
+  }
+  .compare-table .group-label td {
+    background: var(--subtle);
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.12em;
+    color: var(--mute); text-transform: uppercase;
+    padding: 10px 16px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .compare-table td {
+    border-top: 1px solid var(--border);
+    font-size: 13px; color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+  .compare-table td:first-child {
+    color: var(--charcoal); font-weight: 500;
+  }
+  .compare-table td.col-pro { background: var(--orange-soft); }
+  .compare-table .ct-check { color: var(--green); font-size: 16px; line-height: 1; }
+  .compare-table .ct-dash  { color: var(--border-strong); }
+  .compare-table .ct-unlim {
+    color: var(--green); font-weight: 700; font-size: 12px;
+    text-transform: uppercase; letter-spacing: 0.04em;
+  }
+
+  /* ---------- Trial callout ---------- */
+  .trial-callout {
+    background: var(--charcoal); color: #F1F1EE;
+    padding: 36px;
+    border-radius: 16px;
+    display: grid; grid-template-columns: minmax(0, 1fr) auto;
+    gap: 28px; align-items: center;
+    margin: 40px 0 0;
+  }
+  .trial-callout .ey {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+    color: var(--orange); text-transform: uppercase;
+    margin-bottom: 10px; display: block;
+  }
+  .trial-callout h3 {
+    font-size: clamp(22px, 2.6vw, 28px); font-weight: 800;
+    letter-spacing: -0.02em; line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .trial-callout p {
+    font-size: 14px; color: #C9CDCB; max-width: 520px; line-height: 1.6;
+  }
+  .trial-callout .cta {
+    background: var(--orange); color: #fff;
+    padding: 13px 22px; border-radius: 10px;
+    font-weight: 600; font-size: 14.5px;
+    display: inline-flex; align-items: center; gap: 8px;
+    white-space: nowrap;
+  }
+  .trial-callout .cta:hover { background: var(--orange-hover); }
+
+  /* ---------- FAQ ---------- */
+  .faq { padding: 80px 0 56px; background: var(--bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .faq-list {
+    display: flex; flex-direction: column; gap: 6px;
+    max-width: 760px;
+  }
+  .faq-item {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 4px 18px;
+    transition: border-color 120ms ease;
+  }
+  .faq-item[open] { border-color: var(--border-strong); }
+  .faq-item summary {
+    list-style: none;
+    font-size: 14.5px; font-weight: 600; color: var(--charcoal);
+    cursor: pointer; padding: 14px 0;
+    display: flex; align-items: center; justify-content: space-between; gap: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after {
+    content: ""; width: 10px; height: 10px;
+    border-right: 1.8px solid var(--mute); border-bottom: 1.8px solid var(--mute);
+    transform: rotate(45deg); transition: transform 120ms ease;
+    flex-shrink: 0;
+  }
+  .faq-item[open] summary::after { transform: rotate(-135deg); }
+  .faq-item .body {
+    font-size: 13.5px; color: var(--mute); line-height: 1.6;
+    padding: 0 0 16px;
+  }
+
+  /* ---------- CTA + Footer ---------- */
+  .cta {
+    padding: 72px 0; text-align: center;
+  }
+  .cta h2 {
+    font-size: clamp(28px, 3.4vw, 38px); font-weight: 800;
+    letter-spacing: -0.02em; color: var(--charcoal);
+    margin-bottom: 12px; text-wrap: balance;
+  }
+  .cta p {
+    font-size: 15.5px; color: var(--mute);
+    max-width: 540px; margin: 0 auto 26px;
+  }
+  .btn-primary {
+    background: var(--charcoal); color: #fff;
+    padding: 13px 22px; border-radius: 10px;
+    font-weight: 600; font-size: 14.5px;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: background 120ms ease;
+  }
+  .btn-primary:hover { background: #0F1413; }
+  .footer {
+    border-top: 1px solid var(--border); padding: 28px 0;
+  }
+  .footer-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 24px; flex-wrap: wrap;
+  }
+  .footer-tagline {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 13px; color: var(--mute);
+  }
+  .footer-tagline img { height: 20px; display: block; }
+  .footer-links {
+    display: flex; align-items: center; gap: 20px;
+    font-size: 13px; color: var(--mute);
+  }
+  .footer-links a { transition: color 120ms ease; }
+  .footer-links a:hover { color: var(--charcoal); }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 980px) {
+    .pricing-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 30px; }
+    .plan-card.popular { transform: none; margin-top: 12px; }
+  }
+  @media (max-width: 880px) {
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .hero { padding: 48px 0 28px; }
+    .section-head { flex-direction: column; align-items: flex-start; gap: 6px; }
+    .compare { padding: 56px 0 40px; }
+    .compare-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .compare-table { min-width: 720px; }
+    .trial-callout { grid-template-columns: 1fr; padding: 28px; }
+    .faq { padding: 56px 0 40px; }
+    .cta { padding: 56px 0; }
+  }
+  @media (max-width: 560px) {
+    .pricing-grid { grid-template-columns: 1fr; }
+    .pc-limits { grid-template-columns: repeat(3, 1fr); }
+  }
+</style>
 </head>
+
 <body>
 
+  <!-- ============================ NAV ============================ -->
   <nav class="nav">
     <div class="nav-inner">
       <a href="/" class="nav-logo">
-        <img src="minnal_logo.svg" alt="Minnal" height="40">
+        <img src="minnal_logo.svg" alt="Minnal" />
       </a>
       <div class="nav-links">
         <a href="https://blog.minnal.io">Blog</a>
         <a href="https://docs.minnal.io">Docs</a>
         <a href="/faq">FAQ</a>
-        <a href="/pricing" style="color:var(--gray-900);font-weight:600">Pricing</a>
-        <a href="https://app.minnal.io" class="btn-nav">Get started</a>
+        <a href="/pricing" class="current">Pricing</a>
+        <a href="https://app.minnal.io" class="btn-nav">Get started <i class="ph ph-arrow-right"></i></a>
       </div>
       <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu" onclick="toggleMobileNav()">
         <span></span><span></span><span></span>
@@ -96,337 +483,280 @@
       <a href="https://blog.minnal.io">Blog</a>
       <a href="https://docs.minnal.io">Docs</a>
       <a href="/faq">FAQ</a>
-      <a href="/pricing" style="font-weight:600">Pricing</a>
+      <a href="/pricing">Pricing</a>
       <a href="https://app.minnal.io" class="btn-nav">Get started</a>
     </div>
   </nav>
-  <script>
-    function toggleMobileNav() {
-      document.getElementById('navHamburger').classList.toggle('open');
-      document.getElementById('navMobile').classList.toggle('open');
-    }
-  </script>
 
-  <!-- Hero -->
-  <section class="pricing-hero">
+  <!-- ============================ HERO ============================ -->
+  <section class="hero">
     <div class="container">
-      <div class="badge">Pricing</div>
-      <h1>Free forever. Upgrade when you grow.</h1>
-      <p>One brand, one AI model, 10 posts a month — always free. 30-day full trial included, no card needed.</p>
-      <div class="billing-toggle">
+      <span class="eyebrow">Pricing</span>
+      <h1>Free forever. <span class="accent">Pro when you grow.</span></h1>
+      <p class="lede">
+        One brand, one AI model, 10 posts a month — always free, no card.
+        Upgrade when you want all 8 models, content gaps, or more brands.
+      </p>
+      <div class="billing-toggle" role="tablist">
         <button id="billMonthly" class="active" onclick="setBilling('monthly')">Monthly</button>
-        <button id="billYearly" onclick="setBilling('yearly')">Yearly <span class="save-badge">2 months free</span></button>
+        <button id="billYearly" onclick="setBilling('yearly')">
+          Yearly <span class="save-badge">2 months free</span>
+        </button>
       </div>
     </div>
   </section>
 
-  <!-- Plan cards -->
-  <section style="padding:0 0 56px">
+  <!-- ============================ PLAN CARDS ============================ -->
+  <section>
     <div class="container">
-      <div class="pricing-grid" id="pricingGrid">
+      <div class="pricing-grid">
 
-        <!-- Free forever -->
-        <div class="pricing-card">
-          <div class="pc-name">Free</div>
+        <!-- ---- Free ---- -->
+        <div class="plan-card normal">
+          <span class="pc-num">01 · Free</span>
+          <div class="pc-name">Free forever</div>
           <div class="pc-tagline">Your AI visibility score, always on. No expiry, no card, no catch.</div>
-          <div class="pc-price">$0</div>
-          <div class="pc-yearly-note">&nbsp;</div>
-          <a href="https://app.minnal.io" class="pc-cta pc-cta-secondary">Get started free</a>
-          <hr class="pc-divider">
-          <div class="pc-limit">1 brand · 1 AI model · 10 posts/mo</div>
+          <div class="pc-price-row">
+            <span class="pc-price">$0</span>
+            <span class="pc-price-unit">/ month</span>
+          </div>
+          <div class="pc-yearly-note">always free</div>
+          <a href="https://app.minnal.io" class="pc-cta pc-cta-secondary">Get started free <i class="ph ph-arrow-right"></i></a>
+          <div class="pc-limits">
+            <div class="pc-limit"><span class="pc-limit-v">1</span><span class="pc-limit-l">brand</span></div>
+            <div class="pc-limit"><span class="pc-limit-v">1</span><span class="pc-limit-l">model</span></div>
+            <div class="pc-limit"><span class="pc-limit-v">10</span><span class="pc-limit-l">posts/mo</span></div>
+          </div>
           <ul class="pc-features">
-            <li><i class="ph ph-check icon-yes"></i> AI visibility score (1 model)</li>
-            <li><i class="ph ph-check icon-yes"></i> GEO playbook (read-only)</li>
-            <li><i class="ph ph-check icon-yes"></i> Crawler pixel (basic)</li>
-            <li><i class="ph ph-check icon-yes"></i> Claude MCP access</li>
-            <li><i class="ph ph-check icon-yes"></i> Post scheduling</li>
-            <li><i class="ph ph-x icon-no"></i> Content gap analysis</li>
-            <li><i class="ph ph-x icon-no"></i> Prompt research</li>
-            <li><i class="ph ph-x icon-no"></i> Advanced crawler</li>
+            <li><i class="ph-fill ph-check-circle"></i> AI visibility score (1 model)</li>
+            <li><i class="ph-fill ph-check-circle"></i> GEO playbook (read-only)</li>
+            <li><i class="ph-fill ph-check-circle"></i> Crawler pixel (basic)</li>
+            <li><i class="ph-fill ph-check-circle"></i> Claude MCP access</li>
+            <li><i class="ph-fill ph-check-circle"></i> Public share-my-score URL</li>
+            <li class="off"><i class="ph ph-minus-circle"></i> Content gap analysis</li>
+            <li class="off"><i class="ph ph-minus-circle"></i> Advanced crawler</li>
           </ul>
         </div>
 
-        <!-- Starter -->
-        <div class="pricing-card">
+        <!-- ---- Starter ---- -->
+        <div class="plan-card normal">
+          <span class="pc-num">02 · Starter</span>
           <div class="pc-name">Starter</div>
-          <div class="pc-tagline">Execution for solo operators — scheduling, publishing, content gaps, and Claude MCP.</div>
-          <div class="pc-price" id="starterPrice">$12<span>/ month</span></div>
+          <div class="pc-tagline">Execution for solo operators — scheduling, publishing, content gaps, Claude MCP.</div>
+          <div class="pc-price-row">
+            <span class="pc-price" id="starterPrice">$12</span>
+            <span class="pc-price-unit" id="starterUnit">/ month</span>
+          </div>
           <div class="pc-yearly-note" id="starterNote">&nbsp;</div>
-          <a href="#" class="pc-cta pc-cta-secondary" id="starterCta">Get Starter</a>
-          <hr class="pc-divider">
-          <div class="pc-limit">2 brands · 4 AI models · 100 posts/mo</div>
+          <a href="https://app.minnal.io" class="pc-cta pc-cta-dark" id="starterCta">Get Starter <i class="ph ph-arrow-right"></i></a>
+          <div class="pc-limits">
+            <div class="pc-limit"><span class="pc-limit-v">2</span><span class="pc-limit-l">brands</span></div>
+            <div class="pc-limit"><span class="pc-limit-v">4</span><span class="pc-limit-l">models</span></div>
+            <div class="pc-limit"><span class="pc-limit-v">100</span><span class="pc-limit-l">posts/mo</span></div>
+          </div>
           <ul class="pc-features">
-            <li><i class="ph ph-check icon-yes"></i> AI visibility (4 models)</li>
-            <li><i class="ph ph-check icon-yes"></i> GEO playbook (full)</li>
-            <li><i class="ph ph-check icon-yes"></i> Content gap analysis</li>
-            <li><i class="ph ph-check icon-yes"></i> Crawler pixel (basic)</li>
-            <li><i class="ph ph-check icon-yes"></i> Claude MCP access</li>
-            <li><i class="ph ph-check icon-yes"></i> Analytics + GitHub Pages</li>
-            <li><i class="ph ph-x icon-no"></i> Prompt research</li>
-            <li><i class="ph ph-x icon-no"></i> Source discovery</li>
-            <li><i class="ph ph-x icon-no"></i> Advanced crawler + webhooks</li>
+            <li><i class="ph-fill ph-check-circle"></i> AI visibility (pick 4 of 8 models)</li>
+            <li><i class="ph-fill ph-check-circle"></i> GEO playbook (full)</li>
+            <li><i class="ph-fill ph-check-circle"></i> Content gap analysis</li>
+            <li><i class="ph-fill ph-check-circle"></i> Crawler pixel (basic)</li>
+            <li><i class="ph-fill ph-check-circle"></i> Claude MCP + Analytics</li>
+            <li class="off"><i class="ph ph-minus-circle"></i> Prompt research</li>
+            <li class="off"><i class="ph ph-minus-circle"></i> Advanced crawler + webhooks</li>
           </ul>
         </div>
 
-        <!-- Pro — recommended -->
-        <div class="pricing-card popular">
-          <div class="popular-badge">Recommended</div>
+        <!-- ---- Pro (recommended) ---- -->
+        <div class="plan-card popular">
+          <span class="popular-badge">RECOMMENDED</span>
+          <span class="pc-num">03 · Pro</span>
           <div class="pc-name">Pro</div>
           <div class="pc-tagline">The full decision engine. Know where to focus and exactly how to fix your AI visibility.</div>
-          <div class="pc-price" id="proPrice">$29<span>/ month</span></div>
+          <div class="pc-price-row">
+            <span class="pc-price" id="proPrice">$29</span>
+            <span class="pc-price-unit" id="proUnit">/ month</span>
+          </div>
           <div class="pc-yearly-note" id="proNote">&nbsp;</div>
-          <a href="#" class="pc-cta pc-cta-primary" id="proCta">Get Pro</a>
-          <hr class="pc-divider">
-          <div class="pc-limit">5 brands · all 8 AI models · unlimited posts</div>
+          <a href="https://app.minnal.io" class="pc-cta pc-cta-primary" id="proCta">Start 30-day Pro trial <i class="ph ph-arrow-right"></i></a>
+          <div class="pc-limits">
+            <div class="pc-limit"><span class="pc-limit-v">5</span><span class="pc-limit-l">brands</span></div>
+            <div class="pc-limit"><span class="pc-limit-v">8</span><span class="pc-limit-l">models</span></div>
+            <div class="pc-limit"><span class="pc-limit-v">∞</span><span class="pc-limit-l">posts/mo</span></div>
+          </div>
           <ul class="pc-features">
-            <li><i class="ph ph-check icon-yes"></i> AI visibility (all 8 models)</li>
-            <li><i class="ph ph-check icon-yes"></i> GEO playbook (full)</li>
-            <li><i class="ph ph-check icon-yes"></i> Content gap analysis</li>
-            <li><i class="ph ph-check icon-yes"></i> Prompt research</li>
-            <li><i class="ph ph-check icon-yes"></i> Source discovery</li>
-            <li><i class="ph ph-check icon-yes"></i> Advanced crawler + alerts</li>
-            <li><i class="ph ph-check icon-yes"></i> Webhooks + data export</li>
-            <li><i class="ph ph-check icon-yes"></i> Claude MCP access</li>
-            <li><i class="ph ph-check icon-yes"></i> Analytics + GitHub Pages</li>
+            <li><i class="ph-fill ph-check-circle"></i> AI visibility (all 8 models)</li>
+            <li><i class="ph-fill ph-check-circle"></i> Prompt research + source discovery</li>
+            <li><i class="ph-fill ph-check-circle"></i> Advanced crawler + alerts</li>
+            <li><i class="ph-fill ph-check-circle"></i> Webhooks + data export</li>
+            <li><i class="ph-fill ph-check-circle"></i> Everything in Starter</li>
           </ul>
         </div>
 
-        <!-- Studio -->
-        <div class="pricing-card">
+        <!-- ---- Studio ---- -->
+        <div class="plan-card normal">
+          <span class="pc-num">04 · Studio</span>
           <div class="pc-name">Studio</div>
-          <div class="pc-tagline">For founders running multiple brands or a small operator team.</div>
-          <div class="pc-price" id="studioPrice">$79<span>/ month</span></div>
+          <div class="pc-tagline">For founders running multiple brands, or a small operator team that ships together.</div>
+          <div class="pc-price-row">
+            <span class="pc-price" id="studioPrice">$79</span>
+            <span class="pc-price-unit" id="studioUnit">/ month</span>
+          </div>
           <div class="pc-yearly-note" id="studioNote">&nbsp;</div>
-          <a href="#" class="pc-cta pc-cta-ghost" id="studioCta">Get Studio</a>
-          <hr class="pc-divider">
-          <div class="pc-limit">15 brands · all 8 AI models · unlimited posts</div>
+          <a href="https://app.minnal.io" class="pc-cta pc-cta-ghost" id="studioCta">Get Studio <i class="ph ph-arrow-right"></i></a>
+          <div class="pc-limits">
+            <div class="pc-limit"><span class="pc-limit-v">15</span><span class="pc-limit-l">brands</span></div>
+            <div class="pc-limit"><span class="pc-limit-v">8</span><span class="pc-limit-l">models</span></div>
+            <div class="pc-limit"><span class="pc-limit-v">∞</span><span class="pc-limit-l">posts/mo</span></div>
+          </div>
           <ul class="pc-features">
-            <li><i class="ph ph-check icon-yes"></i> Everything in Pro</li>
-            <li><i class="ph ph-check icon-yes"></i> 15 brands</li>
-            <li><i class="ph ph-check icon-yes"></i> Multi-operator (3 users)</li>
-            <li><i class="ph ph-check icon-yes"></i> White-label shared reports</li>
-            <li><i class="ph ph-check icon-yes"></i> Priority MCP</li>
+            <li><i class="ph-fill ph-check-circle"></i> Everything in Pro</li>
+            <li><i class="ph-fill ph-check-circle"></i> 15 brands</li>
+            <li><i class="ph-fill ph-check-circle"></i> Multi-operator (3 users)</li>
+            <li><i class="ph-fill ph-check-circle"></i> White-label shared reports</li>
+            <li><i class="ph-fill ph-check-circle"></i> Priority MCP</li>
           </ul>
         </div>
 
       </div>
-      <p style="text-align:center;font-size:12px;color:var(--gray-400)">30-day free trial on full Pro — no card needed · Prices in USD · EU VAT included · Cancel anytime</p>
+
+      <p class="fine">Prices in USD · EU VAT handled by Lemon Squeezy · Cancel any time</p>
+
+      <!-- Trial callout -->
+      <div class="trial-callout">
+        <div>
+          <span class="ey">· Try before you decide</span>
+          <h3>30 days of full Pro. No card.</h3>
+          <p>
+            Every new account starts on the Pro tier — all 8 models, 5 brands,
+            prompt research, source discovery. When the trial ends, you land on Free,
+            not a paywall. Upgrade only if you've already gotten value.
+          </p>
+        </div>
+        <a href="https://app.minnal.io" class="cta">Start Pro trial <i class="ph ph-arrow-right"></i></a>
+      </div>
     </div>
   </section>
 
-  <!-- Feature comparison -->
-  <section class="compare-section">
+  <!-- ============================ COMPARE TABLE ============================ -->
+  <section class="compare">
     <div class="container">
-      <h2>Full feature comparison</h2>
-      <table class="compare-table">
-        <thead>
-          <tr>
-            <th></th>
-            <th>Free</th>
-            <th>Starter</th>
-            <th class="col-pro-h">Pro</th>
-            <th>Studio</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="group-label"><td colspan="5">Limits</td></tr>
-          <tr>
-            <td>Brands</td>
-            <td><strong>1</strong></td>
-            <td><strong>2</strong></td>
-            <td class="col-pro"><strong>5</strong></td>
-            <td><strong>15</strong></td>
-          </tr>
-          <tr>
-            <td>AI models tracked</td>
-            <td><strong>1</strong></td>
-            <td><strong>4</strong></td>
-            <td class="col-pro"><span class="ct-unlimited">All 8</span></td>
-            <td><span class="ct-unlimited">All 8</span></td>
-          </tr>
-          <tr>
-            <td>Posts / month</td>
-            <td><strong>10</strong></td>
-            <td><strong>100</strong></td>
-            <td class="col-pro"><span class="ct-unlimited">Unlimited</span></td>
-            <td><span class="ct-unlimited">Unlimited</span></td>
-          </tr>
-          <tr>
-            <td>Team members</td>
-            <td><strong>1</strong></td>
-            <td><strong>1</strong></td>
-            <td class="col-pro"><strong>1</strong></td>
-            <td><strong>3</strong></td>
-          </tr>
+      <div class="section-head">
+        <span class="num">01</span>
+        <h2>Full feature comparison</h2>
+        <span class="sub">Every cap and feature, in one calm table.</span>
+      </div>
 
-          <tr class="group-label"><td colspan="5">AI Visibility (GEO)</td></tr>
-          <tr>
-            <td>AI visibility score</td>
-            <td><i class="ph ph-check ct-check"></i></td>
-            <td><i class="ph ph-check ct-check"></i></td>
-            <td class="col-pro"><i class="ph ph-check ct-check"></i></td>
-            <td><i class="ph ph-check ct-check"></i></td>
-          </tr>
-          <tr>
-            <td>GEO playbook</td>
-            <td>Read-only</td>
-            <td>Full</td>
-            <td class="col-pro">Full</td>
-            <td>Full</td>
-          </tr>
-          <tr>
-            <td>Content gap analysis</td>
-            <td><span class="ct-dash">—</span></td>
-            <td><i class="ph ph-check ct-check"></i></td>
-            <td class="col-pro"><i class="ph ph-check ct-check"></i></td>
-            <td><i class="ph ph-check ct-check"></i></td>
-          </tr>
-          <tr>
-            <td>Prompt research</td>
-            <td><span class="ct-dash">—</span></td>
-            <td><span class="ct-dash">—</span></td>
-            <td class="col-pro"><i class="ph ph-check ct-check"></i></td>
-            <td><i class="ph ph-check ct-check"></i></td>
-          </tr>
-          <tr>
-            <td>Source discovery</td>
-            <td><span class="ct-dash">—</span></td>
-            <td><span class="ct-dash">—</span></td>
-            <td class="col-pro"><i class="ph ph-check ct-check"></i></td>
-            <td><i class="ph ph-check ct-check"></i></td>
-          </tr>
-          <tr>
-            <td>Crawler pixel</td>
-            <td>Basic</td>
-            <td>Basic</td>
-            <td class="col-pro">Advanced</td>
-            <td>Advanced</td>
-          </tr>
+      <div class="compare-wrap">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Free</th>
+              <th>Starter</th>
+              <th class="col-pro">Pro</th>
+              <th>Studio</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="group-label"><td colspan="5">Limits</td></tr>
+            <tr><td>Brands</td><td>1</td><td>2</td><td class="col-pro">5</td><td>15</td></tr>
+            <tr><td>AI models tracked</td><td>1</td><td>4</td><td class="col-pro"><span class="ct-unlim">All 8</span></td><td><span class="ct-unlim">All 8</span></td></tr>
+            <tr><td>Posts / month</td><td>10</td><td>100</td><td class="col-pro"><span class="ct-unlim">Unlimited</span></td><td><span class="ct-unlim">Unlimited</span></td></tr>
+            <tr><td>Team members</td><td>1</td><td>1</td><td class="col-pro">1</td><td>3</td></tr>
+            <tr><td>Visibility history</td><td>Last 30 days</td><td>90 days</td><td class="col-pro">Full</td><td>Full</td></tr>
 
-          <tr class="group-label"><td colspan="5">Publishing &amp; Workflow</td></tr>
-          <tr>
-            <td>Post scheduling</td>
-            <td><i class="ph ph-check ct-check"></i></td>
-            <td><i class="ph ph-check ct-check"></i></td>
-            <td class="col-pro"><i class="ph ph-check ct-check"></i></td>
-            <td><i class="ph ph-check ct-check"></i></td>
-          </tr>
-          <tr>
-            <td>AI content generation</td>
-            <td><i class="ph ph-check ct-check"></i></td>
-            <td><i class="ph ph-check ct-check"></i></td>
-            <td class="col-pro"><i class="ph ph-check ct-check"></i></td>
-            <td><i class="ph ph-check ct-check"></i></td>
-          </tr>
-          <tr>
-            <td>Claude MCP access</td>
-            <td><i class="ph ph-check ct-check"></i></td>
-            <td><i class="ph ph-check ct-check"></i></td>
-            <td class="col-pro"><i class="ph ph-check ct-check"></i></td>
-            <td><i class="ph ph-check ct-check"></i></td>
-          </tr>
-          <tr>
-            <td>GitHub Pages publish</td>
-            <td><span class="ct-dash">—</span></td>
-            <td><i class="ph ph-check ct-check"></i></td>
-            <td class="col-pro"><i class="ph ph-check ct-check"></i></td>
-            <td><i class="ph ph-check ct-check"></i></td>
-          </tr>
-          <tr>
-            <td>Analytics</td>
-            <td><span class="ct-dash">—</span></td>
-            <td><i class="ph ph-check ct-check"></i></td>
-            <td class="col-pro"><i class="ph ph-check ct-check"></i></td>
-            <td><i class="ph ph-check ct-check"></i></td>
-          </tr>
-          <tr>
-            <td>Webhooks</td>
-            <td><span class="ct-dash">—</span></td>
-            <td><span class="ct-dash">—</span></td>
-            <td class="col-pro"><i class="ph ph-check ct-check"></i></td>
-            <td><i class="ph ph-check ct-check"></i></td>
-          </tr>
-          <tr>
-            <td>Data export (GDPR)</td>
-            <td><span class="ct-dash">—</span></td>
-            <td><span class="ct-dash">—</span></td>
-            <td class="col-pro"><i class="ph ph-check ct-check"></i></td>
-            <td><i class="ph ph-check ct-check"></i></td>
-          </tr>
+            <tr class="group-label"><td colspan="5">AI Visibility (GEO)</td></tr>
+            <tr><td>AI visibility score</td><td><i class="ph ph-check ct-check"></i></td><td><i class="ph ph-check ct-check"></i></td><td class="col-pro"><i class="ph ph-check ct-check"></i></td><td><i class="ph ph-check ct-check"></i></td></tr>
+            <tr><td>GEO playbook</td><td>Read-only</td><td>Full</td><td class="col-pro">Full</td><td>Full</td></tr>
+            <tr><td>Content gap analysis</td><td><span class="ct-dash">—</span></td><td><i class="ph ph-check ct-check"></i></td><td class="col-pro"><i class="ph ph-check ct-check"></i></td><td><i class="ph ph-check ct-check"></i></td></tr>
+            <tr><td>Prompt research</td><td><span class="ct-dash">—</span></td><td><span class="ct-dash">—</span></td><td class="col-pro"><i class="ph ph-check ct-check"></i></td><td><i class="ph ph-check ct-check"></i></td></tr>
+            <tr><td>Source discovery</td><td><span class="ct-dash">—</span></td><td><span class="ct-dash">—</span></td><td class="col-pro"><i class="ph ph-check ct-check"></i></td><td><i class="ph ph-check ct-check"></i></td></tr>
+            <tr><td>Crawler pixel</td><td>Basic</td><td>Basic</td><td class="col-pro">Advanced</td><td>Advanced</td></tr>
+            <tr><td>Public share-my-score URL</td><td><i class="ph ph-check ct-check"></i></td><td><i class="ph ph-check ct-check"></i></td><td class="col-pro"><i class="ph ph-check ct-check"></i></td><td><i class="ph ph-check ct-check"></i></td></tr>
 
-          <tr class="group-label"><td colspan="5">Studio only</td></tr>
-          <tr>
-            <td>White-label shared reports</td>
-            <td><span class="ct-dash">—</span></td>
-            <td><span class="ct-dash">—</span></td>
-            <td class="col-pro"><span class="ct-dash">—</span></td>
-            <td><i class="ph ph-check ct-check"></i></td>
-          </tr>
-          <tr>
-            <td>Priority MCP</td>
-            <td><span class="ct-dash">—</span></td>
-            <td><span class="ct-dash">—</span></td>
-            <td class="col-pro"><span class="ct-dash">—</span></td>
-            <td><i class="ph ph-check ct-check"></i></td>
-          </tr>
-        </tbody>
-      </table>
+            <tr class="group-label"><td colspan="5">Publishing &amp; Workflow</td></tr>
+            <tr><td>Post scheduling (Reddit + LinkedIn)</td><td><i class="ph ph-check ct-check"></i></td><td><i class="ph ph-check ct-check"></i></td><td class="col-pro"><i class="ph ph-check ct-check"></i></td><td><i class="ph ph-check ct-check"></i></td></tr>
+            <tr><td>AI content generation</td><td><i class="ph ph-check ct-check"></i></td><td><i class="ph ph-check ct-check"></i></td><td class="col-pro"><i class="ph ph-check ct-check"></i></td><td><i class="ph ph-check ct-check"></i></td></tr>
+            <tr><td>Claude MCP (<code>npx minnal-mcp</code>)</td><td><i class="ph ph-check ct-check"></i></td><td><i class="ph ph-check ct-check"></i></td><td class="col-pro"><i class="ph ph-check ct-check"></i></td><td><i class="ph ph-check ct-check"></i></td></tr>
+            <tr><td>GitHub Pages publish</td><td><span class="ct-dash">—</span></td><td><i class="ph ph-check ct-check"></i></td><td class="col-pro"><i class="ph ph-check ct-check"></i></td><td><i class="ph ph-check ct-check"></i></td></tr>
+            <tr><td>Analytics</td><td><span class="ct-dash">—</span></td><td><i class="ph ph-check ct-check"></i></td><td class="col-pro"><i class="ph ph-check ct-check"></i></td><td><i class="ph ph-check ct-check"></i></td></tr>
+            <tr><td>Webhooks</td><td><span class="ct-dash">—</span></td><td><span class="ct-dash">—</span></td><td class="col-pro"><i class="ph ph-check ct-check"></i></td><td><i class="ph ph-check ct-check"></i></td></tr>
+            <tr><td>Data export (GDPR)</td><td><span class="ct-dash">—</span></td><td><span class="ct-dash">—</span></td><td class="col-pro"><i class="ph ph-check ct-check"></i></td><td><i class="ph ph-check ct-check"></i></td></tr>
+
+            <tr class="group-label"><td colspan="5">Studio only</td></tr>
+            <tr><td>White-label shared reports</td><td><span class="ct-dash">—</span></td><td><span class="ct-dash">—</span></td><td class="col-pro"><span class="ct-dash">—</span></td><td><i class="ph ph-check ct-check"></i></td></tr>
+            <tr><td>Priority MCP</td><td><span class="ct-dash">—</span></td><td><span class="ct-dash">—</span></td><td class="col-pro"><span class="ct-dash">—</span></td><td><i class="ph ph-check ct-check"></i></td></tr>
+            <tr><td>Multi-operator (3 users)</td><td><span class="ct-dash">—</span></td><td><span class="ct-dash">—</span></td><td class="col-pro"><span class="ct-dash">—</span></td><td><i class="ph ph-check ct-check"></i></td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section class="pricing-faq">
+  <!-- ============================ FAQ ============================ -->
+  <section class="faq">
     <div class="container">
-      <h2>Common questions</h2>
+      <div class="section-head">
+        <span class="num">02</span>
+        <h2>Common questions</h2>
+        <span class="sub">If something's still unclear, email <a href="mailto:hello@minnal.io" style="color:var(--orange)">hello@minnal.io</a>.</span>
+      </div>
+
       <div class="faq-list">
         <details class="faq-item">
           <summary>What does the free plan include?</summary>
-          <p>One brand, one AI model tracked, 10 posts per month — forever, no card needed. You get your AI visibility score, a read-only GEO playbook, the crawler pixel, and Claude MCP access. It's a real product, not a stripped demo.</p>
+          <div class="body">One brand, one AI model tracked, 10 posts a month — forever, no card. You get your AI visibility score, a read-only GEO playbook, the crawler pixel, Claude MCP access, and a public "share my score" URL. It's a real product, not a stripped demo.</div>
         </details>
         <details class="faq-item">
-          <summary>What is the 30-day trial?</summary>
-          <p>Every new account gets 30 days of full Pro access — all 8 models, all 5 brands, prompt research, source discovery, everything — at no charge, no card required. When the trial ends, you drop to the Free plan (your data stays, only the Pro-only features are paused). You can upgrade at any point.</p>
+          <summary>What's the 30-day Pro trial?</summary>
+          <div class="body">Every new account starts on full Pro for 30 days — all 8 models, 5 brands, prompt research, source discovery — at no charge, no card required. When the trial ends you drop to Free; your data stays, only the Pro-only features pause. Upgrade any time.</div>
         </details>
         <details class="faq-item">
-          <summary>What are the 8 AI models?</summary>
-          <p>Claude (Anthropic), GPT-4o (OpenAI), Perplexity, Gemini (Google), Grok (xAI), Llama (Meta), DeepSeek, and Mistral. On Free you choose 1; on Starter, 4; on Pro and Studio, all 8.</p>
+          <summary>Which 8 AI models do you track?</summary>
+          <div class="body">Claude (Anthropic), GPT-4o (OpenAI), Perplexity, Gemini (Google), Grok (xAI), Llama (Meta), DeepSeek, and Mistral. On Free you choose 1; Starter, 4 of the 8; Pro and Studio, all 8.</div>
         </details>
         <details class="faq-item">
-          <summary>What happens if I have more brands than my plan allows?</summary>
-          <p>Your oldest brand stays fully active. Extra brands are locked (read-only) — you can still see their history and data, but can't schedule new posts or run checks. Upgrade any time to unlock all of them immediately.</p>
+          <summary>What happens if I run more brands than my plan allows?</summary>
+          <div class="body">Your oldest brand stays fully active. Extras stay visible but pause — you can read history and data, but new posts and checks pause. Upgrade any time to unlock all of them at once.</div>
         </details>
         <details class="faq-item">
-          <summary>Do you handle EU VAT automatically?</summary>
-          <p>Yes. Billing is handled by Lemon Squeezy, who act as the merchant of record. They calculate and remit VAT for EU customers automatically.</p>
+          <summary>Do you handle EU VAT?</summary>
+          <div class="body">Yes. Billing is via Lemon Squeezy, who act as the merchant of record. They calculate and remit VAT for EU customers automatically.</div>
         </details>
         <details class="faq-item">
-          <summary>Is there a discount for yearly billing?</summary>
-          <p>Yes — yearly saves you 2 months. Starter is $99/year ($8.25/mo), Pro is $249/year ($20.75/mo), Studio is $699/year ($58.25/mo).</p>
+          <summary>How much is the yearly discount?</summary>
+          <div class="body">About 17% — yearly billing gets you 2 months free. Starter: $99/yr (~$8.25/mo). Pro: $249/yr (~$20.75/mo). Studio: $699/yr (~$58.25/mo).</div>
         </details>
         <details class="faq-item">
-          <summary>Can I cancel anytime?</summary>
-          <p>Yes. Cancel from your account settings at any time. You keep access until the end of your billing period, then drop to Free — no data deleted, no penalties.</p>
+          <summary>Can I cancel any time?</summary>
+          <div class="body">Yes. Cancel from your account settings. You keep paid access until the end of your billing period, then drop to Free — no data deleted, no penalties.</div>
+        </details>
+        <details class="faq-item">
+          <summary>I was already on the legacy $9 / $19 plan. What changes?</summary>
+          <div class="body">Nothing for you — legacy customers are grandfathered at original prices. New tiers apply only to new sign-ups.</div>
         </details>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="cta-section">
+  <!-- ============================ CTA ============================ -->
+  <section class="cta">
     <div class="container">
-      <h2>Start free — upgrade when you're ready</h2>
-      <p>30 days of full Pro, then free forever on 1 brand. No card needed.</p>
-      <a href="https://app.minnal.io" class="btn-primary">Get started free</a>
+      <h2>Know your next move in minutes.</h2>
+      <p>
+        Free forever for one brand. Pro from $12/mo when you're ready.
+        Start with the score; upgrade once Minnal earns it.
+      </p>
+      <a href="https://app.minnal.io" class="btn-primary">Get started free <i class="ph ph-arrow-right"></i></a>
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- ============================ FOOTER ============================ -->
   <footer class="footer">
     <div class="container">
       <div class="footer-inner">
         <span class="footer-tagline">
-          <img src="minnal_logo.svg" alt="Minnal" height="20" style="vertical-align:middle;margin-right:6px">
-          Minnal — Your AI marketing co-pilot
+          <img src="minnal_logo.svg" alt="Minnal" />
+          <span>Your AI marketing co-pilot · © 2026</span>
         </span>
         <div class="footer-links">
           <a href="https://blog.minnal.io">Blog</a>
@@ -440,54 +770,20 @@
   </footer>
 
   <script>
+    function toggleMobileNav() {
+      document.getElementById('navHamburger').classList.toggle('open');
+      document.getElementById('navMobile').classList.toggle('open');
+    }
+
+    // ---- Pricing toggle ----
     let billing = 'monthly';
-    let plans = [];
 
-    async function loadPlans() {
-      try {
-        const res = await fetch('https://app.minnal.io/plans');
-        plans = await res.json();
-        applyPrices();
-      } catch(e) {
-        // API unavailable — static prices remain
-      }
-    }
-
-    function applyPrices() {
-      applyCard('starter', 'starterPrice', 'starterNote', 'starterCta', '$12', '$99');
-      applyCard('pro',     'proPrice',     'proNote',     'proCta',     '$29', '$249');
-      applyCard('studio',  'studioPrice',  'studioNote',  'studioCta',  '$79', '$699');
-    }
-
-    function applyCard(slug, priceId, noteId, ctaId, fallbackMonthly, fallbackYearly) {
-      const plan = plans.find(p => p.slug === slug);
-      const priceEl = document.getElementById(priceId);
-      const noteEl  = document.getElementById(noteId);
-      const ctaEl   = document.getElementById(ctaId);
-
-      if (plan) {
-        const p = billing === 'yearly' ? plan.price_yearly : plan.price_monthly;
-        if (p && priceEl) {
-          priceEl.innerHTML = `${p.price_formatted}<span>/ ${billing === 'yearly' ? 'year' : 'month'}</span>`;
-        }
-        if (noteEl) {
-          noteEl.textContent = (billing === 'yearly' && plan.price_monthly)
-            ? `${plan.price_monthly.price_formatted}/mo billed annually` : ' ';
-        }
-        const url = billing === 'yearly' ? plan.checkout_yearly_url : plan.checkout_monthly_url;
-        if (url && ctaEl) { ctaEl.href = url; ctaEl.target = '_blank'; }
-      } else {
-        // Static fallback
-        if (priceEl) {
-          const price = billing === 'yearly' ? fallbackYearly : fallbackMonthly;
-          const period = billing === 'yearly' ? 'year' : 'month';
-          priceEl.innerHTML = `${price}<span>/ ${period}</span>`;
-        }
-        if (noteEl) {
-          noteEl.textContent = billing === 'yearly' ? `billed annually` : ' ';
-        }
-      }
-    }
+    // Fallback static prices (matched to PRICING_STRATEGY.md, 2026-05-09)
+    const PRICES = {
+      starter: { monthly: '$12', yearly: '$99',  monthlyEquiv: '$8.25/mo billed yearly' },
+      pro:     { monthly: '$29', yearly: '$249', monthlyEquiv: '$20.75/mo billed yearly' },
+      studio:  { monthly: '$79', yearly: '$699', monthlyEquiv: '$58.25/mo billed yearly' },
+    };
 
     function setBilling(mode) {
       billing = mode;
@@ -496,7 +792,48 @@
       applyPrices();
     }
 
-    loadPlans();
+    function applyPrices() {
+      for (const slug of ['starter', 'pro', 'studio']) {
+        const p = PRICES[slug];
+        const priceEl = document.getElementById(slug + 'Price');
+        const unitEl  = document.getElementById(slug + 'Unit');
+        const noteEl  = document.getElementById(slug + 'Note');
+        if (billing === 'yearly') {
+          priceEl.textContent = p.yearly;
+          unitEl.textContent  = '/ year';
+          noteEl.textContent  = p.monthlyEquiv;
+        } else {
+          priceEl.textContent = p.monthly;
+          unitEl.textContent  = '/ month';
+          noteEl.textContent  = 'or ' + p.yearly + '/yr — save 17%';
+        }
+      }
+    }
+
+    // Optional: fetch live plans from app.minnal.io if available (keeps parity with current site)
+    (async function loadPlans() {
+      try {
+        const res = await fetch('https://app.minnal.io/plans');
+        if (!res.ok) return;
+        const plans = await res.json();
+        for (const slug of ['starter', 'pro', 'studio']) {
+          const plan = plans.find(p => p.slug === slug);
+          if (!plan) continue;
+          if (plan.price_monthly?.price_formatted) PRICES[slug].monthly = plan.price_monthly.price_formatted;
+          if (plan.price_yearly?.price_formatted)  PRICES[slug].yearly  = plan.price_yearly.price_formatted;
+          const ctaEl = document.getElementById(slug + 'Cta');
+          if (ctaEl) {
+            const url = billing === 'yearly' ? plan.checkout_yearly_url : plan.checkout_monthly_url;
+            if (url) { ctaEl.href = url; ctaEl.target = '_blank'; }
+          }
+        }
+        applyPrices();
+      } catch (e) { /* static fallback already rendered */ }
+    })();
+
+    // Initial render
+    applyPrices();
   </script>
+
 </body>
 </html>
