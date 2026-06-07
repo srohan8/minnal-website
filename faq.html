@@ -1,163 +1,360 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FAQ — Minnal MarketingHub</title>
-  <meta name="description" content="Answers to common questions about AI marketing automation, GEO, and how Minnal helps lean teams get found by AI models like ChatGPT, Perplexity, and Claude.">
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What is AI marketing automation?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "AI marketing automation is the use of artificial intelligence to plan, create, schedule, and publish content across social platforms — without manual effort for each post. Unlike traditional schedulers, AI-native tools like Minnal (https://minnal.io) understand your brand voice, track how AI models perceive your business, and help you optimise content to appear in AI-generated answers, not just search engine results."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is GEO (Generative Engine Optimization)?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "GEO stands for Generative Engine Optimization — the practice of making your brand visible inside AI model responses. When someone asks ChatGPT, Perplexity, or Claude 'What's the best marketing tool for solo founders?', GEO is what determines whether your brand gets mentioned. Minnal (https://minnal.io) tracks your brand's visibility across five major AI models and gives you a prioritised playbook of actions to improve it."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How does Minnal work?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Minnal is an AI-native marketing hub that connects to Claude via the Model Context Protocol (MCP). You chat with Claude in Claude Desktop to plan your content calendar, write posts, and schedule them across LinkedIn, Reddit, Facebook, Instagram, and GitHub Pages. Simultaneously, Minnal monitors how AI models like ChatGPT, Perplexity, Gemini, and Grok mention your brand, and surfaces a GEO Playbook of actions to improve your visibility. Get started at https://app.minnal.io."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Who is Minnal for?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Minnal is built for solo founders, indie hackers, and lean startup teams who want a sophisticated marketing presence without a full marketing team. If you're building in public, trying to grow an audience, or want your brand to appear when potential customers ask AI models for recommendations in your category — Minnal is for you. Try it at https://minnal.io."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How is Minnal different from Buffer or Hootsuite?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Buffer and Hootsuite are social media schedulers built for the era of keyword search. Minnal is built for the era of AI search. Beyond scheduling, Minnal tracks how five AI models (Claude, ChatGPT, Perplexity, Gemini, Grok) mention your brand, identifies content gaps versus competitors, and gives you a GEO Playbook to improve your standing in AI-generated answers. You also control it entirely through natural language in Claude — no dashboard clicking required."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Which AI models does Minnal track for brand visibility?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Minnal tracks your brand's visibility across five major AI models: Claude (Anthropic), ChatGPT (OpenAI), Perplexity, Gemini (Google), and Grok (xAI). For each model, you can see whether your brand was mentioned, what was said, and how your visibility score changes over time. Learn more at https://minnal.io."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Which social platforms does Minnal publish to?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Minnal currently supports publishing to LinkedIn, Reddit (any subreddit), Facebook, Instagram, and GitHub Pages (as markdown blog posts committed directly to your repo). You can schedule posts to any of these platforms by chatting with Claude in Claude Desktop, with Minnal's MCP server handling the actual publishing. More platforms are on the roadmap."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Is Minnal free to try?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. Minnal is currently in free beta. You can sign up and start using it at https://app.minnal.io — no credit card required. Connect your social accounts, set up your brand, and start scheduling posts through Claude within minutes."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is an AI visibility score?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "An AI visibility score is a metric Minnal uses to measure how often and how positively your brand appears in responses from AI models when they're asked questions relevant to your product category. Minnal runs regular checks across Claude, ChatGPT, Perplexity, Gemini, and Grok and aggregates the results into a score you can track over time at https://app.minnal.io."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How do I get started with Minnal?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "1. Sign up for free at https://app.minnal.io. 2. Create your brand and connect your social accounts (LinkedIn, Reddit, etc.). 3. Install the Minnal MCP server in Claude Desktop using the config from your Settings page. 4. Chat with Claude to schedule your first post and run your first AI visibility check. Full setup guide at https://docs.minnal.io."
-        }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FAQ — Minnal</title>
+<meta name="description" content="Answers to common questions about AI marketing automation, GEO, pricing, and how Minnal helps solo founders get found by AI models like Claude, ChatGPT, Perplexity, and Gemini." />
+<link rel="icon" type="image/png" href="favicon.png" />
+
+<script>
+  !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="Ii init Di qi Sr Bi Zi Pi capture calculateEventProperties Yi register register_once register_for_session unregister unregister_for_session Xi getFeatureFlag getFeatureFlagPayload getFeatureFlagResult isFeatureEnabled reloadFeatureFlags updateFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey cancelPendingSurvey canRenderSurvey canRenderSurveyAsync Ji identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset setIdentity clearIdentity get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException startExceptionAutocapture stopExceptionAutocapture loadToolbar get_property getSessionProperty Wi Vi createPersonProfile setInternalOrTestUser Gi Fi tn opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing $i debug Tr Ui getPageViewId captureTraceFeedback captureTraceMetric Ri".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+  posthog.init('phc_uSVCBt5kqmUKwHrnRDDG5LUQLveU4YJEWekW57L8Ah7j', {
+      api_host: 'https://eu.i.posthog.com',
+      defaults: '2026-01-30',
+      person_profiles: 'identified_only',
+  })
+</script>
+<script src="https://app.minnal.io/track/2c11643c-ee71-4845-a33a-d8345d26195b.js"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet" />
+<script src="https://unpkg.com/@phosphor-icons/web" defer></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is AI marketing automation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AI marketing automation is the use of artificial intelligence to plan, create, schedule, and publish content across social platforms — without manual effort for each post. Unlike traditional schedulers, AI-native tools like Minnal (https://minnal.io) understand your brand voice, track how AI models perceive your business, and help you optimise content to appear in AI-generated answers, not just search engine results."
       }
-    ]
+    },
+    {
+      "@type": "Question",
+      "name": "What is GEO (Generative Engine Optimization)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "GEO stands for Generative Engine Optimization — the practice of making your brand visible inside AI model responses. When someone asks ChatGPT, Perplexity, or Claude 'What's the best marketing tool for solo founders?', GEO is what determines whether your brand gets mentioned. Minnal (https://minnal.io) tracks your brand's visibility across eight major AI models and gives you a prioritised playbook of actions to improve it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Minnal work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Minnal is an AI-native marketing hub that connects to Claude via the Model Context Protocol (MCP). You chat with Claude in Claude Desktop to plan your content calendar, write posts, and schedule them across LinkedIn, Reddit, Facebook, Instagram, and GitHub Pages. Simultaneously, Minnal monitors how eight AI models — including ChatGPT, Perplexity, Gemini, and Grok — mention your brand, and surfaces a GEO Playbook of actions to improve your visibility. Get started at https://app.minnal.io."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who is Minnal for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Minnal is built for solo founders, indie hackers, and lean startup teams who want a sophisticated marketing presence without a full marketing team. If you're building in public, trying to grow an audience, or want your brand to appear when potential customers ask AI models for recommendations in your category — Minnal is for you. Try it at https://minnal.io."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is Minnal different from Buffer or Hootsuite?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Buffer and Hootsuite are social media schedulers built for the era of keyword search. Minnal is built for the era of AI search. Beyond scheduling, Minnal tracks how eight AI models (Claude, ChatGPT, Perplexity, Gemini, Grok, Llama, DeepSeek, Mistral) mention your brand, identifies content gaps versus competitors, and gives you a GEO Playbook to improve your standing in AI-generated answers. You also control it entirely through natural language in Claude — no dashboard clicking required."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which AI models does Minnal track for brand visibility?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Minnal tracks your brand's visibility across eight major AI models: Claude (Anthropic), GPT-4o (OpenAI), Perplexity, Gemini (Google), Grok (xAI), Llama (Meta), DeepSeek, and Mistral. For each model, you can see whether your brand was mentioned, what was said, and how your visibility score changes over time. The Free plan tracks 1 model, Starter tracks 4, and Pro and Studio track all 8. Learn more at https://minnal.io."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which social platforms does Minnal publish to?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Minnal currently supports publishing to LinkedIn, Reddit (any subreddit), Facebook, Instagram, and GitHub Pages (as markdown blog posts committed directly to your repo). You can schedule posts to any of these platforms by chatting with Claude in Claude Desktop, with Minnal's MCP server handling the actual publishing. More platforms are on the roadmap."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Minnal free to use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — free forever, no credit card. The Free plan covers one brand, one AI model, and 10 posts a month, with your AI visibility score always on, a read-only GEO playbook, the crawler pixel, and Claude MCP access. Every new account also gets a 30-day full Pro trial — all 8 models, 5 brands, prompt research and source discovery — with no card; when it ends you land on Free, not a paywall. Paid plans start at $12/mo (Starter), $29/mo (Pro), and $79/mo (Studio). See https://minnal.io/pricing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does Minnal cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Minnal has four plans. Free is $0 forever (1 brand, 1 model, 10 posts/mo). Starter is $12/mo or $99/yr (2 brands, 4 models, content gaps, 100 posts/mo). Pro is $29/mo or $249/yr (5 brands, all 8 models, prompt research, source discovery, advanced crawler, unlimited posts). Studio is $79/mo or $699/yr (15 brands, multi-operator, white-label reports). Yearly billing saves about 17%. Full breakdown at https://minnal.io/pricing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is an AI visibility score?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An AI visibility score is a metric Minnal uses to measure how often and how positively your brand appears in responses from AI models when they're asked questions relevant to your product category. Minnal runs regular checks across all eight tracked models and aggregates the results into a score you can track over time at https://app.minnal.io."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I get started with Minnal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1. Sign up for free at https://app.minnal.io — no card required. 2. Create your brand and connect your social accounts (LinkedIn, Reddit, etc.). 3. Install the Minnal MCP server in Claude Desktop using the config from your Settings page. 4. Chat with Claude to schedule your first post and run your first AI visibility check. Full setup guide at https://docs.minnal.io."
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+  /* ---------- Tokens ---------- */
+  :root {
+    --orange:        #FF6B35;
+    --orange-hover:  #E65A2B;
+    --orange-soft:   #FFF1EA;
+    --charcoal:      #1F2524;
+    --ink:           #2B2F2E;
+    --mute:          #6C6F6C;
+    --faint:         #9A9A93;
+    --bg:            #F4F6F8;
+    --card:          #FFFFFF;
+    --subtle:        #F8FAFB;
+    --warm-tint:     #FFF8F2;
+    --green-tint:    #F4F9F6;
+    --border:        #E5E7EB;
+    --border-strong: #D1D5DB;
+    --green:         #1F8A5B;
+    --max:           1100px;
   }
-  </script>
-  <script>
-    !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="Ii init Di qi Sr Bi Zi Pi capture calculateEventProperties Yi register register_once register_for_session unregister unregister_for_session Xi getFeatureFlag getFeatureFlagPayload getFeatureFlagResult isFeatureEnabled reloadFeatureFlags updateFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey cancelPendingSurvey canRenderSurvey canRenderSurveyAsync Ji identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset setIdentity clearIdentity get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException startExceptionAutocapture stopExceptionAutocapture loadToolbar get_property getSessionProperty Wi Vi createPersonProfile setInternalOrTestUser Gi Fi tn opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing $i debug Tr Ui getPageViewId captureTraceFeedback captureTraceMetric Ri".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-    posthog.init('phc_uSVCBt5kqmUKwHrnRDDG5LUQLveU4YJEWekW57L8Ah7j', {
-        api_host: 'https://eu.i.posthog.com',
-        defaults: '2026-01-30',
-        person_profiles: 'identified_only',
-    })
-  </script>
-  <style>
-    .faq-hero { padding: 72px 0 48px; text-align: center; }
-    .faq-hero h1 { font-size: 2.4rem; font-weight: 700; margin-bottom: 12px; }
-    .faq-hero p  { color: #64748b; font-size: 1.1rem; max-width: 540px; margin: 0 auto; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    color: var(--ink);
+    background: var(--card);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  a { color: inherit; text-decoration: none; }
+  .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+  .container { max-width: var(--max); margin: 0 auto; padding: 0 28px; }
 
-    .faq-section { padding: 0 0 80px; }
-    .faq-list { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 4px; }
+  /* ---------- Nav (matches Landing.html / Pricing.html) ---------- */
+  .nav {
+    border-bottom: 1px solid var(--border);
+    background: rgba(255,255,255,.9);
+    backdrop-filter: saturate(140%) blur(10px);
+    position: sticky; top: 0; z-index: 50;
+  }
+  .nav-inner {
+    max-width: var(--max); margin: 0 auto; padding: 14px 28px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo img { height: 28px; display: block; }
+  .nav-links { display: flex; align-items: center; gap: 26px; }
+  .nav-links a {
+    font-size: 13.5px; font-weight: 500; color: var(--mute);
+    transition: color 120ms ease;
+  }
+  .nav-links a:hover { color: var(--charcoal); }
+  .nav-links a.current { color: var(--charcoal); font-weight: 600; }
+  .btn-nav {
+    background: var(--charcoal); color: #fff !important;
+    padding: 9px 16px; border-radius: 9px;
+    font-weight: 600; font-size: 13.5px;
+    display: inline-flex; align-items: center; gap: 6px;
+    transition: background 120ms ease;
+  }
+  .btn-nav:hover { background: #0F1413; }
+  .nav-hamburger {
+    display: none; flex-direction: column; gap: 4px;
+    background: none; border: none; cursor: pointer; padding: 6px;
+  }
+  .nav-hamburger span {
+    width: 20px; height: 2px; background: var(--charcoal); border-radius: 2px;
+    transition: all .25s ease;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+  .nav-mobile {
+    display: none; flex-direction: column; gap: 2px;
+    background: var(--card); border-top: 1px solid var(--border);
+    padding: 12px 0;
+  }
+  .nav-mobile.open { display: flex; }
+  .nav-mobile a {
+    padding: 11px 28px; font-size: 14.5px; color: var(--ink); font-weight: 500;
+  }
+  .nav-mobile .btn-nav { margin: 8px 28px 0; justify-content: center; }
 
-    .faq-item { border: 1px solid #e2e8f0; border-radius: 10px; overflow: hidden; }
-    .faq-item summary {
-      list-style: none;
-      padding: 18px 22px;
-      font-weight: 600;
-      font-size: 0.97rem;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-    }
-    .faq-item summary::-webkit-details-marker { display: none; }
-    .faq-item summary::after {
-      content: '\2B';
-      font-size: 1rem;
-      color: #94a3b8;
-      flex-shrink: 0;
-      transition: transform 0.2s;
-    }
-    .faq-item[open] summary::after { transform: rotate(45deg); }
-    .faq-item[open] summary { border-bottom: 1px solid #e2e8f0; }
-    .faq-answer { padding: 16px 22px; color: #475569; font-size: 0.94rem; line-height: 1.7; }
-    .faq-answer a { color: #4f46e5; text-decoration: none; }
-    .faq-answer a:hover { text-decoration: underline; }
-    .faq-answer ol { padding-left: 20px; margin: 0; }
-    .faq-answer ol li { margin-bottom: 4px; }
-  </style>
-  <script src="https://app.minnal.io/track/2c11643c-ee71-4845-a33a-d8345d26195b.js"></script>
+  /* ---------- Hero ---------- */
+  .hero { padding: 72px 0 40px; text-align: center; }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11.5px; font-weight: 700; letter-spacing: 0.14em;
+    color: var(--orange); text-transform: uppercase;
+    margin-bottom: 22px;
+  }
+  .eyebrow::before {
+    content: ""; width: 6px; height: 6px; border-radius: 999px;
+    background: var(--orange);
+  }
+  .hero h1 {
+    font-size: clamp(30px, 4vw, 48px);
+    font-weight: 800; line-height: 1.06;
+    letter-spacing: -0.025em; color: var(--charcoal);
+    text-wrap: balance; margin-bottom: 18px;
+    max-width: 760px; margin-left: auto; margin-right: auto;
+  }
+  .hero p.lede {
+    font-size: 16.5px; color: var(--mute);
+    max-width: 560px; margin: 0 auto;
+    line-height: 1.55; text-wrap: pretty;
+  }
+
+  /* ---------- FAQ ---------- */
+  .faq { padding: 56px 0 64px; }
+  .section-head {
+    display: flex; align-items: baseline; gap: 18px;
+    padding-bottom: 14px; margin-bottom: 28px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-head .num {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.12em; color: var(--orange);
+  }
+  .section-head h2 {
+    font-size: 22px; font-weight: 700;
+    letter-spacing: -0.015em; color: var(--charcoal);
+  }
+  .section-head .sub { flex: 1; font-size: 13px; color: var(--mute); }
+
+  .faq-list {
+    display: flex; flex-direction: column; gap: 6px;
+    max-width: 760px; margin: 0 auto;
+  }
+  .faq-item {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 4px 18px;
+    transition: border-color 120ms ease;
+  }
+  .faq-item[open] { border-color: var(--border-strong); }
+  .faq-item summary {
+    list-style: none;
+    font-size: 14.5px; font-weight: 600; color: var(--charcoal);
+    cursor: pointer; padding: 14px 0;
+    display: flex; align-items: center; justify-content: space-between; gap: 14px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after {
+    content: ""; width: 10px; height: 10px;
+    border-right: 1.8px solid var(--mute); border-bottom: 1.8px solid var(--mute);
+    transform: rotate(45deg); transition: transform 120ms ease;
+    flex-shrink: 0;
+  }
+  .faq-item[open] summary::after { transform: rotate(-135deg); }
+  .faq-item .body {
+    font-size: 13.5px; color: var(--mute); line-height: 1.65;
+    padding: 0 0 16px;
+  }
+  .faq-item .body a { color: var(--orange); font-weight: 500; }
+  .faq-item .body a:hover { text-decoration: underline; }
+  .faq-item .body ul, .faq-item .body ol { padding-left: 20px; margin: 8px 0 0; }
+  .faq-item .body li { margin-bottom: 4px; }
+
+  /* ---------- CTA + Footer ---------- */
+  .cta { padding: 72px 0; text-align: center; background: var(--bg); border-top: 1px solid var(--border); }
+  .cta h2 {
+    font-size: clamp(28px, 3.4vw, 38px); font-weight: 800;
+    letter-spacing: -0.02em; color: var(--charcoal);
+    margin-bottom: 12px; text-wrap: balance;
+  }
+  .cta p {
+    font-size: 15.5px; color: var(--mute);
+    max-width: 540px; margin: 0 auto 26px;
+  }
+  .cta-row {
+    display: inline-flex; gap: 10px; flex-wrap: wrap; justify-content: center;
+  }
+  .btn-primary {
+    background: var(--charcoal); color: #fff;
+    padding: 13px 22px; border-radius: 10px;
+    font-weight: 600; font-size: 14.5px;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: background 120ms ease;
+  }
+  .btn-primary:hover { background: #0F1413; }
+  .btn-secondary {
+    color: var(--charcoal); background: var(--card);
+    padding: 13px 18px; border-radius: 10px;
+    font-weight: 600; font-size: 14.5px;
+    border: 1px solid var(--border-strong);
+    display: inline-flex; align-items: center; gap: 6px;
+    transition: background 120ms ease;
+  }
+  .btn-secondary:hover { background: var(--subtle); }
+  .footer {
+    border-top: 1px solid var(--border); padding: 28px 0;
+  }
+  .footer-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 24px; flex-wrap: wrap;
+  }
+  .footer-tagline {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 13px; color: var(--mute);
+  }
+  .footer-tagline img { height: 20px; display: block; }
+  .footer-links {
+    display: flex; align-items: center; gap: 20px;
+    font-size: 13px; color: var(--mute);
+  }
+  .footer-links a { transition: color 120ms ease; }
+  .footer-links a:hover { color: var(--charcoal); }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 880px) {
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .hero { padding: 48px 0 28px; }
+    .section-head { flex-direction: column; align-items: flex-start; gap: 6px; }
+    .faq { padding: 40px 0 48px; }
+    .cta { padding: 56px 0; }
+    .footer-inner { gap: 12px; }
+  }
+</style>
 </head>
+
 <body>
 
-  <!-- Nav -->
+  <!-- ============================ NAV ============================ -->
   <nav class="nav">
     <div class="nav-inner">
       <a href="/" class="nav-logo">
-        <img src="minnal_logo.svg" alt="Minnal" height="40">
+        <img src="minnal_logo.svg" alt="Minnal" />
       </a>
       <div class="nav-links">
         <a href="https://blog.minnal.io">Blog</a>
         <a href="https://docs.minnal.io">Docs</a>
-        <a href="/faq" style="font-weight:600">FAQ</a>
+        <a href="/faq" class="current">FAQ</a>
         <a href="/pricing">Pricing</a>
-        <a href="https://app.minnal.io" class="btn-nav">Get started</a>
+        <a href="https://app.minnal.io" class="btn-nav">Get started <i class="ph ph-arrow-right"></i></a>
       </div>
       <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu" onclick="toggleMobileNav()">
         <span></span><span></span><span></span>
@@ -166,65 +363,69 @@
     <div class="nav-mobile" id="navMobile">
       <a href="https://blog.minnal.io">Blog</a>
       <a href="https://docs.minnal.io">Docs</a>
-      <a href="/faq" style="font-weight:600">FAQ</a>
+      <a href="/faq">FAQ</a>
       <a href="/pricing">Pricing</a>
       <a href="https://app.minnal.io" class="btn-nav">Get started</a>
     </div>
   </nav>
-  <script>
-    function toggleMobileNav() {
-      document.getElementById('navHamburger').classList.toggle('open');
-      document.getElementById('navMobile').classList.toggle('open');
-    }
-  </script>
 
-  <!-- Hero -->
-  <section class="faq-hero">
+  <!-- ============================ HERO ============================ -->
+  <section class="hero">
     <div class="container">
-      <h1>Frequently Asked Questions</h1>
-      <p>Everything you need to know about AI marketing automation, GEO, and how Minnal works.</p>
+      <span class="eyebrow">FAQ</span>
+      <h1>Frequently asked questions</h1>
+      <p class="lede">
+        Everything you need to know about AI marketing automation, GEO,
+        pricing, and how Minnal works.
+      </p>
     </div>
   </section>
 
-  <!-- FAQ list -->
-  <section class="faq-section">
+  <!-- ============================ FAQ ============================ -->
+  <section class="faq">
     <div class="container">
+      <div class="section-head">
+        <span class="num">01</span>
+        <h2>Common questions</h2>
+        <span class="sub">If something's still unclear, email <a href="mailto:hello@minnal.io" style="color:var(--orange)">hello@minnal.io</a>.</span>
+      </div>
+
       <div class="faq-list">
 
         <details class="faq-item">
           <summary>What is AI marketing automation?</summary>
-          <div class="faq-answer">
+          <div class="body">
             <p>AI marketing automation is the use of artificial intelligence to plan, create, schedule, and publish content across social platforms — without manual effort for each post. Unlike traditional schedulers, AI-native tools like <a href="https://minnal.io">Minnal</a> understand your brand voice, track how AI models perceive your business, and help you optimise content to appear in AI-generated answers, not just search engine results.</p>
           </div>
         </details>
 
         <details class="faq-item">
           <summary>What is GEO (Generative Engine Optimization)?</summary>
-          <div class="faq-answer">
-            <p>GEO stands for Generative Engine Optimization — the practice of making your brand visible inside AI model responses. When someone asks ChatGPT, Perplexity, or Claude "What's the best marketing tool for solo founders?", GEO is what determines whether your brand gets mentioned. <a href="https://minnal.io">Minnal</a> tracks your brand's visibility across five major AI models and gives you a prioritised playbook of actions to improve it.</p>
+          <div class="body">
+            <p>GEO stands for Generative Engine Optimization — the practice of making your brand visible inside AI model responses. When someone asks ChatGPT, Perplexity, or Claude "What's the best marketing tool for solo founders?", GEO is what determines whether your brand gets mentioned. <a href="https://minnal.io">Minnal</a> tracks your brand's visibility across eight major AI models and gives you a prioritised playbook of actions to improve it.</p>
           </div>
         </details>
 
         <details class="faq-item">
           <summary>How does Minnal work?</summary>
-          <div class="faq-answer">
-            <p>Minnal is an AI-native marketing hub that connects to Claude via the Model Context Protocol (MCP). You chat with Claude in Claude Desktop to plan your content calendar, write posts, and schedule them across LinkedIn, Reddit, Facebook, Instagram, and GitHub Pages. Simultaneously, Minnal monitors how AI models like ChatGPT, Perplexity, Gemini, and Grok mention your brand, and surfaces a GEO Playbook of actions to improve your visibility. <a href="https://app.minnal.io">Get started free →</a></p>
+          <div class="body">
+            <p>Minnal is an AI-native marketing hub that connects to Claude via the Model Context Protocol (MCP). You chat with Claude in Claude Desktop to plan your content calendar, write posts, and schedule them across LinkedIn, Reddit, Facebook, Instagram, and GitHub Pages. Simultaneously, Minnal monitors how eight AI models — including ChatGPT, Perplexity, Gemini, and Grok — mention your brand, and surfaces a GEO Playbook of actions to improve your visibility. <a href="https://app.minnal.io">Get started free →</a></p>
           </div>
         </details>
 
         <details class="faq-item">
           <summary>Who is Minnal for?</summary>
-          <div class="faq-answer">
+          <div class="body">
             <p>Minnal is built for solo founders, indie hackers, and lean startup teams who want a sophisticated marketing presence without a full marketing team. If you're building in public, trying to grow an audience, or want your brand to appear when potential customers ask AI models for recommendations in your category — <a href="https://minnal.io">Minnal</a> is for you.</p>
           </div>
         </details>
 
         <details class="faq-item">
           <summary>How is Minnal different from Buffer or Hootsuite?</summary>
-          <div class="faq-answer">
+          <div class="body">
             <p>Buffer and Hootsuite are social media schedulers built for the era of keyword search. Minnal is built for the era of AI search. Beyond scheduling, Minnal:</p>
-            <ul style="padding-left:20px;margin:8px 0">
-              <li>Tracks how five AI models mention your brand</li>
+            <ul>
+              <li>Tracks how eight AI models mention your brand</li>
               <li>Identifies content gaps versus competitors</li>
               <li>Gives you a GEO Playbook to improve your standing in AI answers</li>
               <li>Lets you control everything through natural language in Claude — no dashboard clicking required</li>
@@ -234,37 +435,51 @@
 
         <details class="faq-item">
           <summary>Which AI models does Minnal track for brand visibility?</summary>
-          <div class="faq-answer">
-            <p>Minnal tracks your brand's visibility across five major AI models: Claude (Anthropic), ChatGPT (OpenAI), Perplexity, Gemini (Google), and Grok (xAI). For each model, you can see whether your brand was mentioned, what was said, and how your visibility score changes over time.</p>
+          <div class="body">
+            <p>Minnal tracks your brand's visibility across eight major AI models: Claude (Anthropic), GPT-4o (OpenAI), Perplexity, Gemini (Google), Grok (xAI), Llama (Meta), DeepSeek, and Mistral. For each model, you can see whether your brand was mentioned, what was said, and how your visibility score changes over time. The Free plan tracks 1 model, Starter tracks 4, and Pro and Studio track all 8.</p>
           </div>
         </details>
 
         <details class="faq-item">
           <summary>Which social platforms does Minnal publish to?</summary>
-          <div class="faq-answer">
+          <div class="body">
             <p>Minnal currently supports publishing to LinkedIn, Reddit (any subreddit), Facebook, Instagram, and GitHub Pages (as markdown blog posts committed directly to your repo). More platforms are on the roadmap. You can schedule posts to any of these by chatting with Claude in Claude Desktop — <a href="https://docs.minnal.io">setup guide here</a>.</p>
           </div>
         </details>
 
         <details class="faq-item">
-          <summary>Is Minnal free to try?</summary>
-          <div class="faq-answer">
-            <p>Yes. Minnal is currently in free beta — no credit card required. <a href="https://app.minnal.io">Sign up at app.minnal.io</a>, connect your social accounts, set up your brand, and start scheduling posts through Claude within minutes.</p>
+          <summary>Is Minnal free to use?</summary>
+          <div class="body">
+            <p>Yes — free forever, no credit card. The Free plan covers one brand, one AI model, and 10 posts a month, with your AI visibility score always on, a read-only GEO playbook, the crawler pixel, and Claude MCP access. Every new account also gets a <strong>30-day full Pro trial</strong> — all 8 models, 5 brands, prompt research and source discovery — with no card; when it ends you land on Free, not a paywall. <a href="https://app.minnal.io">Sign up at app.minnal.io →</a></p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>How much does Minnal cost?</summary>
+          <div class="body">
+            <p>Minnal has four plans:</p>
+            <ul>
+              <li><strong>Free</strong> — $0 forever (1 brand, 1 model, 10 posts/mo)</li>
+              <li><strong>Starter</strong> — $12/mo or $99/yr (2 brands, 4 models, content gaps, 100 posts/mo)</li>
+              <li><strong>Pro</strong> — $29/mo or $249/yr (5 brands, all 8 models, prompt research, source discovery, advanced crawler, unlimited posts)</li>
+              <li><strong>Studio</strong> — $79/mo or $699/yr (15 brands, multi-operator, white-label reports)</li>
+            </ul>
+            <p style="margin-top:10px">Yearly billing saves about 17%. Full breakdown on the <a href="/pricing">pricing page</a>.</p>
           </div>
         </details>
 
         <details class="faq-item">
           <summary>What is an AI visibility score?</summary>
-          <div class="faq-answer">
-            <p>An AI visibility score is a metric Minnal uses to measure how often and how positively your brand appears in responses from AI models when they're asked questions relevant to your product category. Minnal runs regular checks across Claude, ChatGPT, Perplexity, Gemini, and Grok and aggregates the results into a score you can track over time at <a href="https://app.minnal.io">app.minnal.io</a>.</p>
+          <div class="body">
+            <p>An AI visibility score is a metric Minnal uses to measure how often and how positively your brand appears in responses from AI models when they're asked questions relevant to your product category. Minnal runs regular checks across all eight tracked models and aggregates the results into a score you can track over time at <a href="https://app.minnal.io">app.minnal.io</a>.</p>
           </div>
         </details>
 
         <details class="faq-item">
           <summary>How do I get started with Minnal?</summary>
-          <div class="faq-answer">
+          <div class="body">
             <ol>
-              <li>Sign up for free at <a href="https://app.minnal.io">app.minnal.io</a>.</li>
+              <li>Sign up for free at <a href="https://app.minnal.io">app.minnal.io</a> — no card required.</li>
               <li>Create your brand and connect your social accounts (LinkedIn, Reddit, etc.).</li>
               <li>Install the Minnal MCP server in Claude Desktop using the config from your Settings page.</li>
               <li>Chat with Claude to schedule your first post and run your first AI visibility check.</li>
@@ -277,32 +492,42 @@
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="cta-section">
+  <!-- ============================ CTA ============================ -->
+  <section class="cta">
     <div class="container">
       <h2>Ready to get found by AI?</h2>
-      <p>The only unified marketing hub for lean teams built for the future of AI search.</p>
-      <a href="https://app.minnal.io" class="btn-primary">Get started free</a>
+      <p>Free forever for one brand. Start with your AI visibility score; upgrade once Minnal earns it.</p>
+      <div class="cta-row">
+        <a href="https://app.minnal.io" class="btn-primary">Get started free <i class="ph ph-arrow-right"></i></a>
+        <a href="/pricing" class="btn-secondary">Compare plans</a>
+      </div>
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- ============================ FOOTER ============================ -->
   <footer class="footer">
     <div class="container">
       <div class="footer-inner">
         <span class="footer-tagline">
-          <img src="minnal_logo.svg" alt="Minnal" height="20" style="vertical-align:middle;margin-right:6px">
-          MarketingHub — Built for the Future of Search
+          <img src="minnal_logo.svg" alt="Minnal" />
+          <span>Your AI marketing co-pilot · © 2026</span>
         </span>
         <div class="footer-links">
           <a href="https://blog.minnal.io">Blog</a>
           <a href="https://docs.minnal.io">Docs</a>
-          <a href="/faq">FAQ</a>
+          <a href="/pricing">Pricing</a>
           <a href="mailto:hello@minnal.io">Contact</a>
         </div>
       </div>
     </div>
   </footer>
+
+  <script>
+    function toggleMobileNav() {
+      document.getElementById('navHamburger').classList.toggle('open');
+      document.getElementById('navMobile').classList.toggle('open');
+    }
+  </script>
 
 </body>
 </html>
